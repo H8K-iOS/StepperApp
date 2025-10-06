@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DB1652E9449F200CF6E98 /* Helpers.swift */; };
 		A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F52E940F71002D7968 /* StepperApp.swift */; };
 		A053F5F82E940F71002D7968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F72E940F71002D7968 /* ContentView.swift */; };
 		A053F5FA2E940F73002D7968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A053F5F92E940F73002D7968 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A03DB1652E9449F200CF6E98 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A053F5F22E940F71002D7968 /* Stepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stepper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F5F52E940F71002D7968 /* StepperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperApp.swift; sourceTree = "<group>"; };
 		A053F5F72E940F71002D7968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A03DB1642E9449E100CF6E98 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A03DB1652E9449F200CF6E98 /* Helpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		A053F5E92E940F71002D7968 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		A053F5F42E940F71002D7968 /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
+				A03DB1642E9449E100CF6E98 /* Utilities */,
 				A0B043352E943D1F0086A53E /* Views */,
 				A0B043322E943BA20086A53E /* Models */,
 				A0BE1A102E9421BD0061E350 /* Stepper.entitlements */,
@@ -379,6 +390,7 @@
 				A053F5F82E940F71002D7968 /* ContentView.swift in Sources */,
 				A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */,
 				A0B043342E943BB20086A53E /* StepModel.swift in Sources */,
+				A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */,
 				A053F6402E941214002D7968 /* HealtStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
