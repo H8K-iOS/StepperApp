@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Stepper.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>WidgetStepperExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A053F5F12E940F71002D7968</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A053F6012E940F73002D7968</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A053F60B2E940F73002D7968</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A053F6222E940F95002D7968</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
