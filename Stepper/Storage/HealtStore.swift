@@ -10,7 +10,9 @@ enum HealtError: Error {
 @Observable
 final class HealtStore {
     var todaySteps: [StepModel] = []
-    var steps: [StepModel] = []
+    var totalSteps: [StepModel] = []
+    var weekSteps: [StepModel] = []
+    var monthSteps: [StepModel] = []
     var healtStore: HKHealthStore?
     var lastError: Error?
     
@@ -23,6 +25,7 @@ final class HealtStore {
     }
     
     //MARK: - Methods
+    ///MARK: today steps
     public func getTodaySteps() async throws {
         guard let healtStore = self.healtStore else { return }
         let stepType = HKQuantityType(.stepCount)
@@ -59,6 +62,8 @@ final class HealtStore {
         }
     }
     
+    /// MARK: week steps
+    /// debug func
     public func getWeekSteps() async throws {
         guard let healtStore = self.healtStore else { return }
         
@@ -83,12 +88,90 @@ final class HealtStore {
             
             if step.count > 0 {
                 DispatchQueue.main.async {
-                    self.steps.append(step)
+                    self.weekSteps.append(step)
                 }
             }
         }
     }
     
+    
+    ///MARK: month steps
+    ///
+    public func getMonthSteps(for date: Date) async throws {
+        guard let healtStore = healtStore else { return }
+        let startDate = date.startOfMonth
+        let endDate = date.valueEndOfMont
+        
+        let stepType = HKQuantityType(.stepCount)
+        let everyDay = DateComponents(day: 1)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+        let stepThisMonth = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
+        
+        let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(predicate: stepThisMonth,
+                                                                    options: .cumulativeSum,
+                                                                    anchorDate: endDate,
+                                                                    intervalComponents: everyDay)
+        
+        let stepCount = try await sumOfStepsQuery.result(for: healtStore)
+        
+        DispatchQueue.main.async {
+            self.monthSteps.removeAll()
+        }
+        
+        stepCount.enumerateStatistics(from: startDate, to: endDate) { statistic, _ in
+            let count = statistic.sumQuantity()?.doubleValue(for: .count()) ?? 0
+            let step = StepModel(count: Int(count), date: statistic.startDate)
+            if step.count > 0 {
+                DispatchQueue.main.async {
+                    self.monthSteps.append(step)
+                }
+            }
+        }
+    }
+    
+    ///MARK: All steps for all time
+    ///x Streaks
+    public func getAlltimeSteps() async throws {
+        guard let healtStore = healtStore else { return }
+        let calendar = Calendar.current
+        let stepType = HKQuantityType(.stepCount)
+        let currentDate = Date()
+        
+        let startDate = calendar.date(byAdding: .year, value: -10, to: currentDate)
+        let endDate = currentDate
+        
+        let interval = DateComponents(day: 1)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+        let stepsPredicate = HKSamplePredicate.quantitySample(type: stepType, predicate: predicate)
+        
+        let descriptor = HKStatisticsCollectionQueryDescriptor(predicate: stepsPredicate,
+                                                               options: .cumulativeSum,
+                                                               anchorDate: endDate,
+                                                               intervalComponents: interval)
+        
+        let result = try await descriptor.result(for: healtStore)
+        
+        guard let startDate = startDate else {
+            print("nil here")
+            return
+        }
+        
+        result.enumerateStatistics(from: startDate, to: endDate) { stats, _ in
+            let count = stats.sumQuantity()?.doubleValue(for: .count()) ?? 0
+            let step = StepModel(count: Int(count ?? 0), date: stats.startDate)
+            
+            if step.count > 0 {
+                DispatchQueue.main.async {
+                    self.totalSteps.append(step)
+                }
+            }
+        }
+        
+    }
+    
+    ///MARK: HealthStore setup
+    ///
     public func requestAuth() async {
         guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
         guard let healtStore = self.healtStore else { return }

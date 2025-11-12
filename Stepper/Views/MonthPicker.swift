@@ -9,13 +9,9 @@ struct MonthPicker: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Button(action: prevMonth) {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.green)
-                    .glowEffect(color: .green, radius: 8)
-            }
-            .buttonStyle(.plain)
+            NavButton(image: "chevron.left", action: prevMonth)
+            
+            Spacer()
             
             Text(monthYear)
                 .font(.system(size: 18, weight: .semibold, design: .monospaced))
@@ -26,13 +22,9 @@ struct MonthPicker: View {
                 .animation(.snappy, value: date)
                 .glowEffect(color: .green, radius: 10)
             
-            Button(action: nextMonth) {
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.green)
-                    .glowEffect(color: .green, radius: 8)
-                
-            }
+            Spacer()
+            
+           NavButton(image: "chevron.right", action: nextMonth)
         }
     }
     
@@ -44,9 +36,31 @@ struct MonthPicker: View {
     private func nextMonth() {
         date = Calendar.current.date(byAdding: .month, value: 1, to: date)!
     }
+    
+    ///MARK: UI methods
+    ///
+    @ViewBuilder
+    func NavButton(image: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: image)
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.green)
+                .glowEffect(color: .green, radius: 8)
+            
+        }
+        .padding(10)
+        .overlay {
+            Rectangle()
+                .stroke(.green, lineWidth: 2)
+                .glowEffect(color: .green, radius: 4)
+                
+        }
+    }
 }
 #Preview {
     ContentView()
         .environmentObject(MainViewModel())
 }
+
+
 

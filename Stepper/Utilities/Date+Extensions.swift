@@ -15,9 +15,14 @@ extension Date {
         Calendar.current.dateInterval(of: .month, for: self)!.start
     }
     
-    var endOfMonth: Date {
+    var calendarViewEndOfMonth: Date {
         let lastDay = Calendar.current.dateInterval(of: .month, for: self)!.end
         return Calendar.current.date(byAdding: .day, value: -1, to: lastDay)!
+    }
+    
+    var valueEndOfMont: Date {
+        let lastDay = Calendar.current.dateInterval(of: .month, for: self)!.end
+        return Calendar.current.date(byAdding: .day, value: 0, to: lastDay)!
     }
     
     var startOfPreviusMonth: Date {
@@ -26,12 +31,14 @@ extension Date {
     }
     
     var numbersOfDayInMonth: Int {
-        Calendar.current.component(.day, from: endOfMonth)
+        Calendar.current.component(.day, from: calendarViewEndOfMonth)
     }
     
     var sundayBeforeStart: Date {
-        let startOfMonthWeekDay = Calendar.current.component(.weekday, from: startOfMonth)
-        let numbFromPrevMonth = startOfMonthWeekDay - 1
+        let calendar = Calendar.current
+        var weekday = Calendar.current.component(.weekday, from: startOfMonth)
+        weekday = (weekday + 5) % 7 + 1
+        let numbFromPrevMonth = weekday - 1
         return Calendar.current.date(byAdding: .day, value: -numbFromPrevMonth, to: startOfMonth)!
     }
     
@@ -48,7 +55,7 @@ extension Date {
             days.append(newDay!)
         }
         
-        return days.filter({ $0 >= sundayBeforeStart && $0 <= endOfMonth}).sorted(by: <)
+        return days.filter({ $0 >= sundayBeforeStart && $0 <= calendarViewEndOfMonth}).sorted(by: <)
     }
     
     var monthInt: Int {

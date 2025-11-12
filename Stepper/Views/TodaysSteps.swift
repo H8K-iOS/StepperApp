@@ -2,9 +2,15 @@ import SwiftUI
 
 struct TodaysSteps: View {
     let step: StepModel
+    let goal: Int
     let stepProgress: Int
+    let activeStreak: Int?
+    let previusStreak: Int?
     
     var body: some View {
+        //TODO: - UI
+        /// Refactor
+        /// Adaptive UI
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Text("\(step.count)")
@@ -15,14 +21,29 @@ struct TodaysSteps: View {
                     .font(.system(size: 14, weight: .medium).monospaced())
                     .glowEffect(color: .green, radius: 6)
                 
-                StepProgress(progress: stepProgress)
+                StepProgress(currentSteps: step.count, goal: goal)
                 
                 HStack {
-                    Text("⚡︎")
-                        .font(.system(size: 22))
-                    Text("173 days streak")
-                        .font(.system(size: 14, weight: .medium).monospaced())
-                        .glowEffect(color: .green, radius: 6)
+                    
+                    if let prev = previusStreak, (activeStreak == 0) {
+                        Text("⚡︎")
+                            .font(.system(size: 22))
+                            .foregroundStyle(.red)
+                            .blinkAnimation()
+                        Text("\(prev) day streak at risk!")
+                            .font(.system(size: 14, weight: .medium).monospaced())
+                            .foregroundStyle(.red)
+                            .glowEffect(color: .red, radius: 6)
+                            .blinkAnimation()
+                    } else {
+                        Text("⚡︎")
+                            .font(.system(size: 22))
+                            .foregroundStyle(.green)
+                        Text("\(activeStreak ?? 0) days streak")
+                            .font(.system(size: 14, weight: .medium).monospaced())
+                            .glowEffect(color: .green, radius: 6)
+                    }
+                    
                     
                     Spacer()
                 }
@@ -50,25 +71,43 @@ struct TodaysSteps: View {
     }
 }
 
+//MARK: - Progress View
 struct StepProgress: View {
-    let progress: Int
+    let currentSteps: Int
+    let goal: Int
     let row = 1
-    let segmentRow: Int = 7
+    
+    private let totalSegments: Int = 7
+    
     var body: some View {
+        
+        let progress = (Double(currentSteps)/Double(goal))
+        let visibleSegments = progress >= 1.0 ? totalSegments : totalSegments - 1
+        let filledSegments = min(Int(progress * Double(visibleSegments)), visibleSegments)
+        
         HStack(spacing: 4) {
-            ForEach(1...segmentRow, id: \.self) { segment in
-                let index = (row - 1) * segmentRow + segment
-                let isFill = index <= progress
+            ForEach(1...visibleSegments, id: \.self) { segment in
                 
+                let isFill = segment <= filledSegments
                 Rectangle()
                     .frame(maxHeight: 5)
                     .foregroundStyle(isFill ? .green : .gray.opacity(0.4))
                     .glowEffect(color: .green, radius: 3)
             }
+            
+            if progress >= 1 {
+                Rectangle()
+                    .frame(maxHeight: 5)
+                    .foregroundStyle(.green)
+                    .glowEffect(color: .green, radius: 3)
+                    .transition(.scale)
+            }
         }
+        .animation(.easeInOut, value: filledSegments)
     }
 }
 
+//MARK: - Debug Preview
 #Preview {
     ContentView()
         .environmentObject(MainViewModel())
