@@ -1,44 +1,80 @@
 import SwiftUI
 
 struct DayCardView: View {
-    let step: StepModel
+    var step: [StepModel]
+    var goal: Int
     @State private var dragOffset: CGSize = .zero
     @State private var topCardIndex: Int = 0
-    var width: CGFloat = 180
+    var width: CGFloat = 240
     //debug
     var cards: [Color] = [.red, .blue, .green, .white, .yellow]
     
     
     var body: some View {
         ZStack {
-            ForEach(cards.indices, id: \.self) { index in
-                let visualIndex = (index - topCardIndex + cards.count) % cards.count
-                let progress = min(abs(dragOffset.width) / 150, 1)
+            ForEach(step.indices, id: \.self) { index in
+                let visualIndex = (index - topCardIndex + step.count) % step.count
+                let progress = min(abs(dragOffset.width) / 200, 1)
                 let signedProgress = (dragOffset.width >= 0 ? 1 : -1) * progress
+                let clampedProgress = max(min(signedProgress, 1), -1)
                 
+                ///MARK: Card Background View
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: width, height: width)
+                    .foregroundStyle(.black.opacity(1).gradient)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .strokeBorder(Color.green, lineWidth: 1)
+                    }
+                    .glowEffect(color: .green, radius: 3)
                 
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: width, height: 250)
-                        .foregroundStyle(.black.opacity(1).gradient)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .strokeBorder(Color.green, lineWidth: 1)
-                        }
-                        .glowEffect(color: .green, radius: 3)
-                        .overlay {
+                ///MARK: Card UI Setup
+                    .overlay {
+                        VStack {
                             VStack {
-                                Text("17")
-                                    .font(.system(size: 38, weight: .medium, design: .monospaced))
+                                Text("[step count]".uppercased())
+                                    .font(.system(size: 10, weight: .medium, design: .monospaced))
+                                    .foregroundStyle(.green)
                                 
-                                Text("")
+                                Text("\(step[index].count)")
+                                    .foregroundStyle(.green)
+                                    .font(.system(size: 48, weight: .medium, design: .monospaced))
+                                    .glowEffect(color: .green, radius: 10)
+                            }
+                            
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(colors: [.green.opacity(0.4), .green, .green.opacity(0.4),],
+                                                   startPoint: .leading,
+                                                   endPoint: .trailing)
+                                    
+                                )
+                            
+                                .frame(height: 1)
+                                .padding(.horizontal)
+                            VStack(alignment: .center) {
+                                Text("\(step[index].date.formatted(.dateTime.month().day()))")
+                                    .font(.system(size: 32, weight: .medium, design: .monospaced))
+                                
+                                HStack(spacing: 4) {
+                                    Image(systemName: "trophy")
+                                        .foregroundStyle(.green)
+                                        .font(.system(size: 12))
+                                    
+                                    let percent = Int((Double(step[index].count) / Double(goal)) * 100)
+                                    Text("\(percent)% complete".uppercased())
+                                        .font(.system(size: 14, weight: .medium, design: .monospaced))
+                                        .foregroundStyle(.green)
+                                }
                             }
                         }
-                    
+                        .padding(.vertical)
+                    }
                 
                 ///MARK:  offset + card position
-                    .offset(x: visualIndex == 0 ? dragOffset.width : Double(visualIndex) * 10,
-                            y: visualIndex == 0 ? 0 : Double(visualIndex) * -4)
-                    .zIndex(Double(cards.count - visualIndex))
+                    .offset(x: visualIndex == 0 ? dragOffset.width : Double(min(visualIndex, 5)) * 10,
+                            y: visualIndex == 0 ? 0 : Double(min(visualIndex, 5)) * -4)
+                    .zIndex(Double(step.count - visualIndex))
                 
                     .rotationEffect(
                         .degrees(visualIndex == 0 ? 0 : Double(visualIndex) * 3 - progress * 3), anchor: .bottom
@@ -48,15 +84,14 @@ struct DayCardView: View {
                                   ? (1.0 - Double(visualIndex) * 0.06 + progress * 0.06)
                                   : (1.0 - Double(visualIndex) * 0.06)
                     )
+                    .offset(x: visualIndex == 0 ? 0 : Double(visualIndex) * 20)
                 
-                    .offset(x: visualIndex == 0 ? 0 : Double(visualIndex) * -3)
-                    .rotation3DEffect(.degrees(
-                        (visualIndex == 0 || visualIndex == 1) ? 10 * signedProgress : 0),
+                    .rotation3DEffect(.degrees(visualIndex == 0 ? 10 * clampedProgress : 0),
                                       axis: (0,1,0)
                     )
                     .contentShape(Rectangle())
                 
-                ///MARK: - swipe left/right cards
+                ///MARK: - Gesture
                     .gesture(
                         
                         DragGesture(minimumDistance: 0)
@@ -78,7 +113,7 @@ struct DayCardView: View {
                                     
                                     DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                                         withAnimation(.smooth(duration: 0.5)) {
-                                            topCardIndex = (topCardIndex + 1) % cards.count
+                                            topCardIndex = (topCardIndex + 1) % step.count
                                             dragOffset = .zero
                                         }
                                     }
@@ -93,9 +128,11 @@ struct DayCardView: View {
         }
         .padding()
     }
-    
 }
 
 #Preview {
-    DayCardView(step: StepModel(count: 1, date: Date()))
+    DayCardView(step: [StepModel(count: 12543, date: Date()),
+                       StepModel(count: 9000, date: Date()),
+                       StepModel(count: 7000, date: Date())], goal: 8000)
 }
+

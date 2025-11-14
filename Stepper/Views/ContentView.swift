@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
-    @State var currentTab: Tab = .monthly
+    @State var currentTab: Tab = .daily
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
     @State private var date: Date = Date.now
@@ -35,6 +35,9 @@ struct ContentView: View {
         
             /// Segmented Controll Setup
             TabControll()
+            
+            ///debug
+            //list
             
             Spacer()
         }
@@ -124,11 +127,11 @@ extension ContentView {
                         .toolbar(.hidden, for: .tabBar)
                 }
                 
-                if let step = vm.montSteps.first {
-                    DayCardView(step: step)
+                DayCardView(step: vm.montSteps,
+                            goal: vm.goal)
                         .tag(Tab.daily)
                         .toolbar(.hidden, for: .tabBar)
-                }
+                
                 
             }
             Spacer()

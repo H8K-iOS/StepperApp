@@ -25,7 +25,7 @@ final class MainViewModel: ObservableObject {
     var todaySteps: [StepModel] {
         self.healthStore.todaySteps
     }
-
+    
     //MARK: Methods
     ///Health kit methods
     ///
@@ -36,7 +36,7 @@ final class MainViewModel: ObservableObject {
     
     @MainActor
     func loadMonthSteps(_ date: Date) async {
-       try? await healthStore.getMonthSteps(for: date)
+        try? await healthStore.getMonthSteps(for: date)
     }
     
     func loadStepsForAllTime() async {
@@ -63,8 +63,8 @@ final class MainViewModel: ObservableObject {
     
     private func calculateStreak(from steps: [StepModel], goal: Int) -> (active: Int, previus: Int?) {
         let calendar = Calendar.current
-        let sorted = steps.sorted(by: { $0.date > $1.date })
-
+        let sorted = steps.sorted(by: { $0.date < $1.date })
+        
         var activeStreak = 0
         var prevStreak: Int? = nil
         var isStreakBroken: Bool = false
@@ -74,14 +74,11 @@ final class MainViewModel: ObservableObject {
         
         for step in sorted {
             let stepDate = calendar.startOfDay(for: step.date)
-            let daysDiff = calendar.dateComponents([.day], from: stepDate, to: prevDate).day ?? 0
+            let daysDiff = calendar.dateComponents([.day], from: prevDate, to: stepDate).day ?? 0
             
             if daysDiff > 1 {
-                if !isStreakBroken {
-                    prevStreak = activeStreak
-                    isStreakBroken = true
-                }
-                break
+                prevStreak = activeStreak
+                activeStreak = 0
             }
             
             if step.count >= goal {
@@ -89,11 +86,10 @@ final class MainViewModel: ObservableObject {
             } else {
                 prevStreak = activeStreak
                 activeStreak = 0
-                break
             }
             prevDate = stepDate
         }
-     
+        
         return (activeStreak, prevStreak)
     }
 }

@@ -24,6 +24,7 @@
 		A053F6332E940F97002D7968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A053F6322E940F97002D7968 /* Assets.xcassets */; };
 		A053F6402E941214002D7968 /* HealtStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F63F2E941214002D7968 /* HealtStore.swift */; };
 		A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879462EC35A4800AF2A55 /* DayCardView.swift */; };
+		A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
 		A0B043342E943BB20086A53E /* StepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B043332E943BAA0086A53E /* StepModel.swift */; };
 		A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */; };
 		A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */; };
@@ -75,6 +76,7 @@
 		A053F6342E940F97002D7968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A053F63F2E941214002D7968 /* HealtStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealtStore.swift; sourceTree = "<group>"; };
 		A08879462EC35A4800AF2A55 /* DayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCardView.swift; sourceTree = "<group>"; };
+		A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGridView.swift; sourceTree = "<group>"; };
 		A0B043332E943BAA0086A53E /* StepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepModel.swift; sourceTree = "<group>"; };
 		A0BE1A102E9421BD0061E350 /* Stepper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stepper.entitlements; sourceTree = "<group>"; };
 		A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		A0B043352E943D1F0086A53E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */,
 				A053F5F72E940F71002D7968 /* ContentView.swift */,
 				A08879452EC35A0500AF2A55 /* SegmentedStackViews */,
 				A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */,
@@ -444,6 +447,7 @@
 				A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */,
 				A053F6402E941214002D7968 /* HealtStore.swift in Sources */,
 				A0CEDC332EA514F900E69322 /* Tabs.swift in Sources */,
+				A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

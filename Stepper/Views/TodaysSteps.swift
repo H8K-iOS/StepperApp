@@ -8,66 +8,100 @@ struct TodaysSteps: View {
     let previusStreak: Int?
     
     var body: some View {
-        //TODO: - UI
-        /// Refactor
-        /// Adaptive UI
+        /// MARK: - View struct
+        /// Background
+        /// Overlay StepsView
+        /// Progress View
+        /// Streak View
+        
         HStack {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("\(step.count)")
-                    .font(.system(size: 34, weight: .bold).monospaced())
-                    .glowEffect(color: .green, radius: 6)
-                
-                Text("Steps today")
-                    .font(.system(size: 14, weight: .medium).monospaced())
-                    .glowEffect(color: .green, radius: 6)
-                
-                StepProgress(currentSteps: step.count, goal: goal)
-                
-                HStack {
-                    
-                    if let prev = previusStreak, (activeStreak == 0) {
-                        Text("⚡︎")
-                            .font(.system(size: 22))
-                            .foregroundStyle(.red)
-                            .blinkAnimation()
-                        Text("\(prev) day streak at risk!")
-                            .font(.system(size: 14, weight: .medium).monospaced())
-                            .foregroundStyle(.red)
-                            .glowEffect(color: .red, radius: 6)
-                            .blinkAnimation()
-                    } else {
-                        Text("⚡︎")
-                            .font(.system(size: 22))
-                            .foregroundStyle(.green)
-                        Text("\(activeStreak ?? 0) days streak")
-                            .font(.system(size: 14, weight: .medium).monospaced())
-                            .glowEffect(color: .green, radius: 6)
-                    }
-                    
-                    
-                    Spacer()
-                }
-                .padding(5)
-                .frame(maxWidth: .infinity)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 2)
-                        .stroke(.green, lineWidth: 3)
-                        .glowEffect(color: .green, radius: 6)
-                )
-            }
-            .padding([.horizontal, .bottom], 5)
-            Spacer()
-        }
-        .padding(.vertical, 12)
-        .padding(.leading, 6)
-        .foregroundStyle(.green)
-        .frame(maxWidth: .infinity, maxHeight: 150)
-        .background(.black)
-        .overlay(
-            RoundedRectangle(cornerRadius: 2)
-                .stroke(.green, lineWidth: 3)
+            ///MARK: Background View
+            Rectangle()
+                .strokeBorder(Color.green, lineWidth: 3)
+                .frame(maxWidth: .infinity, maxHeight: 180)
                 .glowEffect(color: .green, radius: 6)
-        )
+            
+                .overlay(alignment: .topLeading) {
+                    VStack(alignment: .leading) {
+                        ///Steps View
+                        StepsView()
+                        
+                        ///MARK: Progress view
+                        StepProgress(currentSteps: step.count, goal: goal)
+                            .padding(.vertical, 8)
+                        
+                        ///MARK: Streak Container
+                        Rectangle()
+                            .stroke(Color.green, lineWidth: 3)
+                            .glowEffect(color: .green, radius: 6)
+                            .padding(.vertical, 4)
+                            .overlay(alignment: .leading) {
+                                ///MARK: Streak View
+                                StreakView()
+                            }
+                    }
+                    .padding()
+                }
+            ///MARK: Goal Image
+                .overlay(alignment: .topTrailing) {
+                    GoalImageButton {
+                        print("HI")
+                    }
+                }
+        }
+    }
+    
+    @ViewBuilder
+    func StepsView() -> some View {
+        VStack(alignment: .leading) {
+            Text("\(step.count)")
+                .font(.system(size: 42, weight: .bold).monospaced())
+            Text("Steps today")
+                .font(.system(size: 14, weight: .medium).monospaced())
+        }
+        .foregroundStyle(.green)
+        .glowEffect(color: .green, radius: 3)
+    }
+    
+    @ViewBuilder
+    func StreakView() -> some View {
+        HStack {
+            if let prev = previusStreak, previusStreak != 0, (activeStreak == 0) {
+                Text("⚡︎")
+                    .font(.system(size: 22))
+                    .foregroundStyle(.red)
+                    .blinkAnimation()
+                
+                Text("\(prev) day streak at risk!")
+                    .font(.system(size: 16, weight: .medium).monospaced())
+                    .foregroundStyle(.red)
+                    .glowEffect(color: .red, radius: 6)
+                    .blinkAnimation()
+            } else {
+                Text("⚡︎")
+                    .font(.system(size: 22))
+                    .foregroundStyle(.green)
+                
+                Text("\(activeStreak ?? 0) days streak")
+                    .font(.system(size: 16, weight: .medium).monospaced())
+                    .glowEffect(color: .green, radius: 6)
+            }
+        }
+        .foregroundStyle(.green)
+        .padding(.leading)
+    }
+    
+    @ViewBuilder
+    func GoalImageButton(selector: @escaping() -> Void) -> some View {
+        Image(systemName: "medal.fill")
+            .padding()
+            .foregroundStyle(
+                LinearGradient(colors: [.green.opacity(0.3), .green.opacity(0.8), .green.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .onTapGesture {
+                selector()
+            }
+
     }
 }
 
