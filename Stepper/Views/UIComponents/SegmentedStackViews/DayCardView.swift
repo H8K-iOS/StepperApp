@@ -14,11 +14,10 @@ struct DayCardView: View {
         ZStack {
             ForEach(step.indices, id: \.self) { index in
                 let visualIndex = (index - topCardIndex + step.count) % step.count
-                let progress = min(abs(dragOffset.width) / 200, 1)
+                let progress = min(abs(dragOffset.width) / 150, 1)
                 let signedProgress = (dragOffset.width >= 0 ? 1 : -1) * progress
-                let clampedProgress = max(min(signedProgress, 1), -1)
                 
-                ///MARK: Card Background View
+                
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: width, height: width)
                     .foregroundStyle(.black.opacity(1).gradient)
@@ -71,6 +70,7 @@ struct DayCardView: View {
                         .padding(.vertical)
                     }
                 
+                
                 ///MARK:  offset + card position
                     .offset(x: visualIndex == 0 ? dragOffset.width : Double(min(visualIndex, 5)) * 10,
                             y: visualIndex == 0 ? 0 : Double(min(visualIndex, 5)) * -4)
@@ -85,13 +85,13 @@ struct DayCardView: View {
                                   : (1.0 - Double(visualIndex) * 0.06)
                     )
                     .offset(x: visualIndex == 0 ? 0 : Double(visualIndex) * 20)
-                
-                    .rotation3DEffect(.degrees(visualIndex == 0 ? 10 * clampedProgress : 0),
+                    .rotation3DEffect(.degrees(
+                        (visualIndex == 0 || visualIndex == 1) ? 10 * signedProgress : 0),
                                       axis: (0,1,0)
                     )
                     .contentShape(Rectangle())
                 
-                ///MARK: - Gesture
+                ///MARK: - swipe left/right cards
                     .gesture(
                         
                         DragGesture(minimumDistance: 0)

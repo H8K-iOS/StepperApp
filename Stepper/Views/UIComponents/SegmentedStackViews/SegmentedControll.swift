@@ -1,11 +1,11 @@
 import SwiftUI
 
-extension ContentView {
+extension HomeStepView {
     /// - Segmented Controll
     @ViewBuilder
     func CustomSegmentedControll() -> some View {
         HStack(spacing: 0) {
-            TappableText(.daily)
+            TappableText(.monthly)
                 .foregroundStyle(.green.gradient)
                 .frame(maxWidth: .infinity)
                 .overlay {
@@ -13,23 +13,23 @@ extension ContentView {
                     Rectangle()
                         .fill(.green.gradient)
                         .overlay {
-                            TappableText(.monthly)
-                                .foregroundStyle(currentTab == .monthly ? .black : .clear)
+                            TappableText(.daily)
+                                .foregroundStyle(currentTab == .daily ? .black : .clear)
                                 .scaleEffect(x: -1)
                         }
                         .overlay {
-                            TappableText(.daily)
-                                .foregroundStyle(currentTab == .monthly ? .clear : .black)
+                            TappableText(.monthly)
+                                .foregroundStyle(currentTab == .daily ? .clear : .black)
                             
                         }
                     
-                        .rotation3DEffect(.init(degrees: currentTab == .daily ? 0 : 180), axis: (x: 0, y: 1, z: 0), anchor: .trailing, perspective: 0.4)
+                        .rotation3DEffect(.init(degrees: currentTab == .monthly ? 0 : 180), axis: (x: 0, y: 1, z: 0), anchor: .trailing, perspective: 0.4)
                 }
             //Back view
                 .zIndex(1)
                 .contentShape(Rectangle())
             
-            TappableText(.monthly)
+            TappableText(.daily)
                 .frame(maxWidth: .infinity)
                 .foregroundStyle(.green.gradient)
                 .glowEffect(color: .green, radius: 6)
@@ -63,7 +63,7 @@ extension ContentView {
                 }
                 
                 withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 1, blendDuration: 1)) {
-                    shakeValue = (tab == .monthly ? 10 : -10)
+                    shakeValue = (tab == .daily ? 10 : -10)
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -76,6 +76,6 @@ extension ContentView {
 }
 
 #Preview {
-    ContentView()
+    HomeStepView()
         .environmentObject(MainViewModel())
 }

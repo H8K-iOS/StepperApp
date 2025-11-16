@@ -58,7 +58,7 @@ struct MonthPicker: View {
     }
 }
 #Preview {
-    ContentView()
+    HomeStepView()
         .environmentObject(MainViewModel())
 }
 

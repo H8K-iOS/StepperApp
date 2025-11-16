@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeStepView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
+    @Environment(Router.self) var router
     @State var currentTab: Tab = .monthly
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
@@ -29,7 +30,8 @@ struct HomeStepView: View {
                                 goal: vm.goal,
                                 stepProgress: 4,
                                 activeStreak: vm.activeStreak,
-                                previusStreak: vm.previusStreak)
+                                previusStreak: vm.previusStreak,
+                                selector: router.navigateToSetAGoal)
                 }
                 
                 // Widget Button

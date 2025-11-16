@@ -4,8 +4,9 @@ import SwiftUI
 struct StepperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeStepView()
                 .environmentObject(MainViewModel())
+                .withRouter()
         }
     }
 }

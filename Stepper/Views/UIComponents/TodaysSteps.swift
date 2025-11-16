@@ -6,6 +6,7 @@ struct TodaysSteps: View {
     let stepProgress: Int
     let activeStreak: Int?
     let previusStreak: Int?
+    let selector: () -> ()
     
     var body: some View {
         /// MARK: - View struct
@@ -44,9 +45,7 @@ struct TodaysSteps: View {
                 }
             ///MARK: Goal Image
                 .overlay(alignment: .topTrailing) {
-                    GoalImageButton {
-                        print("HI")
-                    }
+                    GoalImageButton()
                 }
         }
     }
@@ -92,14 +91,14 @@ struct TodaysSteps: View {
     }
     
     @ViewBuilder
-    func GoalImageButton(selector: @escaping() -> Void) -> some View {
+    func GoalImageButton() -> some View {
         Image(systemName: "medal.fill")
             .padding()
             .foregroundStyle(
                 LinearGradient(colors: [.green.opacity(0.3), .green.opacity(0.8), .green.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
             .onTapGesture {
-                selector()
+                self.selector()
             }
 
     }
@@ -143,7 +142,7 @@ struct StepProgress: View {
 
 //MARK: - Debug Preview
 #Preview {
-    ContentView()
+    HomeStepView()
         .environmentObject(MainViewModel())
 }
 

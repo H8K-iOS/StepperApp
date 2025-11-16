@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DB1652E9449F200CF6E98 /* Helpers.swift */; };
 		A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F52E940F71002D7968 /* StepperApp.swift */; };
-		A053F5F82E940F71002D7968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F72E940F71002D7968 /* ContentView.swift */; };
+		A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F72E940F71002D7968 /* HomeStepView.swift */; };
 		A053F5FA2E940F73002D7968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A053F5F92E940F73002D7968 /* Assets.xcassets */; };
 		A053F5FD2E940F73002D7968 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A053F5FC2E940F73002D7968 /* Preview Assets.xcassets */; };
 		A053F6072E940F73002D7968 /* StepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F6062E940F73002D7968 /* StepperTests.swift */; };
@@ -25,6 +25,8 @@
 		A053F6402E941214002D7968 /* HealtStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F63F2E941214002D7968 /* HealtStore.swift */; };
 		A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879462EC35A4800AF2A55 /* DayCardView.swift */; };
 		A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
+		A088794C2EC750F100AF2A55 /* GoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088794B2EC750D500AF2A55 /* GoalScreen.swift */; };
+		A088794F2EC909C400AF2A55 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088794E2EC909C100AF2A55 /* Router.swift */; };
 		A0B043342E943BB20086A53E /* StepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B043332E943BAA0086A53E /* StepModel.swift */; };
 		A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */; };
 		A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */; };
@@ -57,7 +59,7 @@
 		A03DB1652E9449F200CF6E98 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A053F5F22E940F71002D7968 /* Stepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stepper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F5F52E940F71002D7968 /* StepperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperApp.swift; sourceTree = "<group>"; };
-		A053F5F72E940F71002D7968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A053F5F72E940F71002D7968 /* HomeStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepView.swift; sourceTree = "<group>"; };
 		A053F5F92E940F73002D7968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A053F5FC2E940F73002D7968 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A053F6022E940F73002D7968 /* StepperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,8 @@
 		A053F63F2E941214002D7968 /* HealtStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealtStore.swift; sourceTree = "<group>"; };
 		A08879462EC35A4800AF2A55 /* DayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCardView.swift; sourceTree = "<group>"; };
 		A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGridView.swift; sourceTree = "<group>"; };
+		A088794B2EC750D500AF2A55 /* GoalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalScreen.swift; sourceTree = "<group>"; };
+		A088794E2EC909C100AF2A55 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A0B043332E943BAA0086A53E /* StepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepModel.swift; sourceTree = "<group>"; };
 		A0BE1A102E9421BD0061E350 /* Stepper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stepper.entitlements; sourceTree = "<group>"; };
 		A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		A053F5F42E940F71002D7968 /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
+				A088794D2EC909B500AF2A55 /* Router */,
 				A03DB1642E9449E100CF6E98 /* Utilities */,
 				A0B043352E943D1F0086A53E /* Views */,
 				A0CEDC292E9D3BDD00E69322 /* ViewModels */,
@@ -238,11 +243,30 @@
 		A08879452EC35A0500AF2A55 /* SegmentedStackViews */ = {
 			isa = PBXGroup;
 			children = (
-				A08879462EC35A4800AF2A55 /* DayCardView.swift */,
 				A0CEDC342EA523F800E69322 /* SegmentedControll.swift */,
+				A08879462EC35A4800AF2A55 /* DayCardView.swift */,
 				A0CEDC382EAE375000E69322 /* CalendarColumnView.swift */,
 			);
 			path = SegmentedStackViews;
+			sourceTree = "<group>";
+		};
+		A088794A2EC7501A00AF2A55 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */,
+				A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */,
+				A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */,
+				A08879452EC35A0500AF2A55 /* SegmentedStackViews */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		A088794D2EC909B500AF2A55 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A088794E2EC909C100AF2A55 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		A0B043322E943BA20086A53E /* Models */ = {
@@ -257,11 +281,9 @@
 		A0B043352E943D1F0086A53E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */,
-				A053F5F72E940F71002D7968 /* ContentView.swift */,
-				A08879452EC35A0500AF2A55 /* SegmentedStackViews */,
-				A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */,
-				A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */,
+				A088794B2EC750D500AF2A55 /* GoalScreen.swift */,
+				A053F5F72E940F71002D7968 /* HomeStepView.swift */,
+				A088794A2EC7501A00AF2A55 /* UIComponents */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -433,7 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A053F5F82E940F71002D7968 /* ContentView.swift in Sources */,
+				A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */,
 				A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */,
 				A0CEDC392EAE375A00E69322 /* CalendarColumnView.swift in Sources */,
 				A0CEDC352EA5240B00E69322 /* SegmentedControll.swift in Sources */,
@@ -443,10 +465,12 @@
 				A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */,
 				A0B043342E943BB20086A53E /* StepModel.swift in Sources */,
 				A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */,
+				A088794F2EC909C400AF2A55 /* Router.swift in Sources */,
 				A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */,
 				A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */,
 				A053F6402E941214002D7968 /* HealtStore.swift in Sources */,
 				A0CEDC332EA514F900E69322 /* Tabs.swift in Sources */,
+				A088794C2EC750F100AF2A55 /* GoalScreen.swift in Sources */,
 				A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
