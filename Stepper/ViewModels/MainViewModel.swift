@@ -1,18 +1,46 @@
 import Foundation
 
+
 final class MainViewModel: ObservableObject {
+    //user defaults
+    private let kStepGoal = "stepGoal"
+    private let kStreak = "activeStreak"
+    private let kStepsToday = "steps"
+    
+    private let widgetManager: WidgetRefreshable
     var healthStore = HealtStore()
-    @Published var activeStreak: Int = 0
-    @Published var previusStreak: Int? = nil
-    var goal: Int = 8000
+    @Published var activeStreak: Int = 0 {
+        didSet {
+            saveStreak()
+            widgetManager.refresh()
+        }
+    }
+    
+    @Published var previusStreak: Int? = nil {
+        didSet {
+            saveStreak()
+            widgetManager.refresh()
+        }
+    }
+    
+    @Published var goal: Int = 5000 {
+        didSet {
+            saveGoal()
+            widgetManager.refresh()
+            Task { @MainActor in
+                      try? await Task.sleep(nanoseconds: 50000000)
+                      self.updateStreak(goal: self.goal)
+                  }
+        }
+    }
     
     //MARK: - Initializer
-    init() {
+    init(widgetManager: WidgetRefreshable = WidgetManager()) {
+        self.widgetManager = widgetManager
+        loadGoal()
         self.healthStore.enableBackgroundUpdate()
         
-        Task {
-            await setupHK()
-        }
+        Task { await setupHK() }
     }
     
     //MARK: Properties
@@ -23,7 +51,7 @@ final class MainViewModel: ObservableObject {
     }
     
     var todaySteps: [StepModel] {
-        self.healthStore.todaySteps
+        self.healthStore.todaySteps 
     }
     
     //MARK: Methods
@@ -32,6 +60,8 @@ final class MainViewModel: ObservableObject {
     private func setupHK() async {
         await healthStore.requestAuth()
         try? await healthStore.getTodaySteps()
+        saveStepsToday()
+        widgetManager.refresh()
     }
     
     @MainActor
@@ -42,12 +72,56 @@ final class MainViewModel: ObservableObject {
     func loadStepsForAllTime() async {
         do {
             try await healthStore.getAlltimeSteps()
+            
             await MainActor.run {
                 self.updateStreak(goal: goal)
+                self.saveStreak()
+                self.saveStepsToday()
+                widgetManager.refresh()
             }
         } catch {
             print("//Debug//")
         }
+    }
+    
+    //MARK: UserDefaults Methods
+    ///Goal
+    func saveGoal() {
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+        shared?.set(goal, forKey: kStepGoal)
+        
+    }
+    
+    func loadGoal() {
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+            let saved = shared?.integer(forKey: kStepGoal) ?? 0
+            goal = saved == 0 ? 5000 : saved
+    }
+    
+    ///Steps today
+    ///for widget
+    func saveStepsToday() {
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+        let steps = todaySteps.first?.count ?? 0
+        shared?.set(steps, forKey: kStepsToday)
+    }
+    
+    ///Streak Active
+    ///for widget
+    func saveStreak() {
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+        if activeStreak == 0 {
+            guard let previusStreak else { return }
+            shared?.set(previusStreak, forKey: kStreak)
+        } else {
+            shared?.set(activeStreak, forKey: kStreak)
+        }
+    }
+    
+    func loadStreak() {
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+          activeStreak  = shared?.integer(forKey: kStreak) ?? 0
+
     }
     
     //MARK: Other methods
@@ -67,7 +141,6 @@ final class MainViewModel: ObservableObject {
         
         var activeStreak = 0
         var prevStreak: Int? = nil
-        var isStreakBroken: Bool = false
         
         guard let first = sorted.first else { return (0, nil) }
         var prevDate = calendar.startOfDay(for: first.date)

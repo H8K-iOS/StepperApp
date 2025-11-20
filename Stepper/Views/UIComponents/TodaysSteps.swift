@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct TodaysSteps: View {
+    @Binding var showSheet: Bool
     let step: StepModel
     let goal: Int
     let stepProgress: Int
     let activeStreak: Int?
     let previusStreak: Int?
-    let selector: () -> ()
     
     var body: some View {
         /// MARK: - View struct
@@ -98,7 +98,7 @@ struct TodaysSteps: View {
                 LinearGradient(colors: [.green.opacity(0.3), .green.opacity(0.8), .green.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
             .onTapGesture {
-                self.selector()
+                self.showSheet.toggle()
             }
 
     }

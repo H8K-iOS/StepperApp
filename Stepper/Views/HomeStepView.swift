@@ -1,18 +1,20 @@
 import SwiftUI
+import WidgetKit
 
 struct HomeStepView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
-    @Environment(Router.self) var router
     @State var currentTab: Tab = .monthly
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
     @State private var date: Date = Date.now
+    @State var showSheet: Bool = false
+   
     
     let daysOfWeek = Date.cpitalizedFirstLetterOfWeek
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
-  
-    //MARK: Initializers
+    
+    //MARK: Initializeƒrs
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -26,12 +28,13 @@ struct HomeStepView: View {
             VStack(spacing: 22) {
                 // Steps View
                 if let step = vm.todaySteps.first {
-                    TodaysSteps(step: step,
+                    TodaysSteps(showSheet: $showSheet,
+                                step: step,
                                 goal: vm.goal,
                                 stepProgress: 4,
                                 activeStreak: vm.activeStreak,
-                                previusStreak: vm.previusStreak,
-                                selector: router.navigateToSetAGoal)
+                                previusStreak: vm.previusStreak)
+                    
                 }
                 
                 // Widget Button
@@ -49,7 +52,6 @@ struct HomeStepView: View {
                 Spacer()
             }
             .padding()
-            
             .onChange(of: date) {
                 days = date.calendarDisplayDays
                 Task {
@@ -64,6 +66,9 @@ struct HomeStepView: View {
                     await vm.loadStepsForAllTime()
                 }
             }
+        }
+        .fullScreenCover(isPresented: $showSheet) {
+            GoalScreen(stepGoal: $vm.goal)
         }
     }
 }
@@ -146,6 +151,10 @@ extension HomeStepView {
             }
     }
     
+    func test() -> Void {
+        print("hi")
+    }
+    
     //TODO: -
     private var widgetsButton: some View {
         HStack{
@@ -164,5 +173,8 @@ extension HomeStepView {
                 .stroke(.green.gradient, lineWidth: 3)
         }
         .glowEffect(color: .green, radius: 6)
+        .onTapGesture {
+            print("\(self.vm.goal)")
+        }
     }
 }

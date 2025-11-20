@@ -2,6 +2,7 @@ import Foundation
 import HealthKit
 import Observation
 
+
 //MARK: - error throw
 enum HealtError: Error {
     case healtDataIsNotAvailable

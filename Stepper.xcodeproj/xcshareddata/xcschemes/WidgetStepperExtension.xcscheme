@@ -16,20 +16,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A053F6222E940F95002D7968"
-               BuildableName = "WidgetStepperExtension.appex"
-               BlueprintName = "WidgetStepperExtension"
-               ReferencedContainer = "container:Stepper.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "A053F5F12E940F71002D7968"
                BuildableName = "Stepper.app"
                BlueprintName = "Stepper"
@@ -57,17 +43,6 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A053F6222E940F95002D7968"
-            BuildableName = "WidgetStepperExtension.appex"
-            BlueprintName = "WidgetStepperExtension"
-            ReferencedContainer = "container:Stepper.xcodeproj">
-         </BuildableReference>
-      </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"

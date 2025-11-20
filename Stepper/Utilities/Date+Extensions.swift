@@ -35,7 +35,6 @@ extension Date {
     }
     
     var sundayBeforeStart: Date {
-        let calendar = Calendar.current
         var weekday = Calendar.current.component(.weekday, from: startOfMonth)
         weekday = (weekday + 5) % 7 + 1
         let numbFromPrevMonth = weekday - 1

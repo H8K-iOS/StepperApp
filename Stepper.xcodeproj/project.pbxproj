@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A013CCE42ECB31AA00F78958 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CCE32ECB31A600F78958 /* Goal.swift */; };
+		A013CCE62ECB57FA00F78958 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CCE52ECB57F600F78958 /* CustomSlider.swift */; };
+		A013CCFA2ECDD07400F78958 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053F6252E940F95002D7968 /* WidgetKit.framework */; };
+		A013CCFB2ECDD07400F78958 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053F6272E940F95002D7968 /* SwiftUI.framework */; };
+		A013CD0D2ECDD07700F78958 /* StepperWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A013CD232ECDEBA700F78958 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
+		A013CD352ECF34D300F78958 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD342ECF34CC00F78958 /* Step.swift */; };
+		A013CD382ECFA73000F78958 /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
 		A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DB1652E9449F200CF6E98 /* Helpers.swift */; };
 		A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F52E940F71002D7968 /* StepperApp.swift */; };
 		A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F72E940F71002D7968 /* HomeStepView.swift */; };
@@ -15,19 +23,10 @@
 		A053F6072E940F73002D7968 /* StepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F6062E940F73002D7968 /* StepperTests.swift */; };
 		A053F6112E940F73002D7968 /* StepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F6102E940F73002D7968 /* StepperUITests.swift */; };
 		A053F6132E940F73002D7968 /* StepperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F6122E940F73002D7968 /* StepperUITestsLaunchTests.swift */; };
-		A053F6262E940F95002D7968 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053F6252E940F95002D7968 /* WidgetKit.framework */; };
-		A053F6282E940F95002D7968 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053F6272E940F95002D7968 /* SwiftUI.framework */; };
-		A053F62B2E940F95002D7968 /* WidgetStepperBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F62A2E940F95002D7968 /* WidgetStepperBundle.swift */; };
-		A053F62D2E940F95002D7968 /* WidgetStepperLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F62C2E940F95002D7968 /* WidgetStepperLiveActivity.swift */; };
-		A053F62F2E940F95002D7968 /* WidgetStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F62E2E940F95002D7968 /* WidgetStepper.swift */; };
-		A053F6312E940F95002D7968 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F6302E940F95002D7968 /* AppIntent.swift */; };
-		A053F6332E940F97002D7968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A053F6322E940F97002D7968 /* Assets.xcassets */; };
 		A053F6402E941214002D7968 /* HealtStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F63F2E941214002D7968 /* HealtStore.swift */; };
 		A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879462EC35A4800AF2A55 /* DayCardView.swift */; };
 		A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
 		A088794C2EC750F100AF2A55 /* GoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088794B2EC750D500AF2A55 /* GoalScreen.swift */; };
-		A088794F2EC909C400AF2A55 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088794E2EC909C100AF2A55 /* Router.swift */; };
-		A0B043342E943BB20086A53E /* StepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B043332E943BAA0086A53E /* StepModel.swift */; };
 		A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */; };
 		A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */; };
 		A0CEDC332EA514F900E69322 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC322EA514F600E69322 /* Tabs.swift */; };
@@ -39,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A013CD0A2ECDD07700F78958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A053F5EA2E940F71002D7968 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A013CCF82ECDD07400F78958;
+			remoteInfo = StepperWidgetExtension;
+		};
 		A053F6032E940F73002D7968 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A053F5EA2E940F71002D7968 /* Project object */;
@@ -55,7 +61,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A013CD0C2ECDD07700F78958 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A013CD0D2ECDD07700F78958 /* StepperWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A013CCE32ECB31A600F78958 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		A013CCE52ECB57F600F78958 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StepperWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A013CD202ECDD54800F78958 /* StepperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepperWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A013CD342ECF34CC00F78958 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		A013CD372ECFA72D00F78958 /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
 		A03DB1652E9449F200CF6E98 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A053F5F22E940F71002D7968 /* Stepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stepper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F5F52E940F71002D7968 /* StepperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperApp.swift; sourceTree = "<group>"; };
@@ -67,21 +93,12 @@
 		A053F60C2E940F73002D7968 /* StepperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F6102E940F73002D7968 /* StepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperUITests.swift; sourceTree = "<group>"; };
 		A053F6122E940F73002D7968 /* StepperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A053F6232E940F95002D7968 /* WidgetStepperExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetStepperExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F6252E940F95002D7968 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A053F6272E940F95002D7968 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A053F62A2E940F95002D7968 /* WidgetStepperBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStepperBundle.swift; sourceTree = "<group>"; };
-		A053F62C2E940F95002D7968 /* WidgetStepperLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStepperLiveActivity.swift; sourceTree = "<group>"; };
-		A053F62E2E940F95002D7968 /* WidgetStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStepper.swift; sourceTree = "<group>"; };
-		A053F6302E940F95002D7968 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		A053F6322E940F97002D7968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A053F6342E940F97002D7968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A053F63F2E941214002D7968 /* HealtStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealtStore.swift; sourceTree = "<group>"; };
 		A08879462EC35A4800AF2A55 /* DayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCardView.swift; sourceTree = "<group>"; };
 		A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGridView.swift; sourceTree = "<group>"; };
 		A088794B2EC750D500AF2A55 /* GoalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalScreen.swift; sourceTree = "<group>"; };
-		A088794E2EC909C100AF2A55 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A0B043332E943BAA0086A53E /* StepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepModel.swift; sourceTree = "<group>"; };
 		A0BE1A102E9421BD0061E350 /* Stepper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stepper.entitlements; sourceTree = "<group>"; };
 		A0CEDC2A2E9D3BE900E69322 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysSteps.swift; sourceTree = "<group>"; };
@@ -93,7 +110,30 @@
 		A0CEDC3C2EAE4F2A00E69322 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A013CD0E2ECDD07700F78958 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A013CCF82ECDD07400F78958 /* StepperWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A013CCFC2ECDD07400F78958 /* StepperWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A013CD0E2ECDD07700F78958 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StepperWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		A013CCF62ECDD07400F78958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A013CCFB2ECDD07400F78958 /* SwiftUI.framework in Frameworks */,
+				A013CCFA2ECDD07400F78958 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A053F5EF2E940F71002D7968 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,18 +155,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A053F6202E940F95002D7968 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A053F6282E940F95002D7968 /* SwiftUI.framework in Frameworks */,
-				A053F6262E940F95002D7968 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A013CD362ECFA71D00F78958 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A013CD372ECFA72D00F78958 /* WidgetManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		A03DB1642E9449E100CF6E98 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,8 +179,9 @@
 		A053F5E92E940F71002D7968 = {
 			isa = PBXGroup;
 			children = (
+				A013CD202ECDD54800F78958 /* StepperWidgetExtension.entitlements */,
 				A053F5F42E940F71002D7968 /* Stepper */,
-				A053F6292E940F95002D7968 /* WidgetStepper */,
+				A013CCFC2ECDD07400F78958 /* StepperWidget */,
 				A053F6052E940F73002D7968 /* StepperTests */,
 				A053F60F2E940F73002D7968 /* StepperUITests */,
 				A053F6242E940F95002D7968 /* Frameworks */,
@@ -155,7 +195,7 @@
 				A053F5F22E940F71002D7968 /* Stepper.app */,
 				A053F6022E940F73002D7968 /* StepperTests.xctest */,
 				A053F60C2E940F73002D7968 /* StepperUITests.xctest */,
-				A053F6232E940F95002D7968 /* WidgetStepperExtension.appex */,
+				A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,12 +203,12 @@
 		A053F5F42E940F71002D7968 /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
-				A088794D2EC909B500AF2A55 /* Router */,
+				A0BE1A102E9421BD0061E350 /* Stepper.entitlements */,
+				A013CD362ECFA71D00F78958 /* Managers */,
 				A03DB1642E9449E100CF6E98 /* Utilities */,
 				A0B043352E943D1F0086A53E /* Views */,
 				A0CEDC292E9D3BDD00E69322 /* ViewModels */,
 				A0B043322E943BA20086A53E /* Models */,
-				A0BE1A102E9421BD0061E350 /* Stepper.entitlements */,
 				A053F5F52E940F71002D7968 /* StepperApp.swift */,
 				A053F63E2E941202002D7968 /* Storage */,
 				A053F63D2E941182002D7968 /* Assets */,
@@ -210,19 +250,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A053F6292E940F95002D7968 /* WidgetStepper */ = {
-			isa = PBXGroup;
-			children = (
-				A053F62A2E940F95002D7968 /* WidgetStepperBundle.swift */,
-				A053F62C2E940F95002D7968 /* WidgetStepperLiveActivity.swift */,
-				A053F62E2E940F95002D7968 /* WidgetStepper.swift */,
-				A053F6302E940F95002D7968 /* AppIntent.swift */,
-				A053F6322E940F97002D7968 /* Assets.xcassets */,
-				A053F6342E940F97002D7968 /* Info.plist */,
-			);
-			path = WidgetStepper;
-			sourceTree = "<group>";
-		};
 		A053F63D2E941182002D7968 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +280,7 @@
 		A088794A2EC7501A00AF2A55 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A013CCE52ECB57F600F78958 /* CustomSlider.swift */,
 				A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */,
 				A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */,
 				A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */,
@@ -261,19 +289,12 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		A088794D2EC909B500AF2A55 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				A088794E2EC909C100AF2A55 /* Router.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		A0B043322E943BA20086A53E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A013CD342ECF34CC00F78958 /* Step.swift */,
+				A013CCE32ECB31A600F78958 /* Goal.swift */,
 				A0CEDC322EA514F600E69322 /* Tabs.swift */,
-				A0B043332E943BAA0086A53E /* StepModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +320,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A013CCF82ECDD07400F78958 /* StepperWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A013CD0F2ECDD07700F78958 /* Build configuration list for PBXNativeTarget "StepperWidgetExtension" */;
+			buildPhases = (
+				A013CCF52ECDD07400F78958 /* Sources */,
+				A013CCF62ECDD07400F78958 /* Frameworks */,
+				A013CCF72ECDD07400F78958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A013CCFC2ECDD07400F78958 /* StepperWidget */,
+			);
+			name = StepperWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = StepperWidgetExtension;
+			productReference = A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A053F5F12E940F71002D7968 /* Stepper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A053F6162E940F73002D7968 /* Build configuration list for PBXNativeTarget "Stepper" */;
@@ -306,10 +349,12 @@
 				A053F5EE2E940F71002D7968 /* Sources */,
 				A053F5EF2E940F71002D7968 /* Frameworks */,
 				A053F5F02E940F71002D7968 /* Resources */,
+				A013CD0C2ECDD07700F78958 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A013CD0B2ECDD07700F78958 /* PBXTargetDependency */,
 			);
 			name = Stepper;
 			productName = Stepper;
@@ -352,23 +397,6 @@
 			productReference = A053F60C2E940F73002D7968 /* StepperUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		A053F6222E940F95002D7968 /* WidgetStepperExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A053F6382E940F97002D7968 /* Build configuration list for PBXNativeTarget "WidgetStepperExtension" */;
-			buildPhases = (
-				A053F61F2E940F95002D7968 /* Sources */,
-				A053F6202E940F95002D7968 /* Frameworks */,
-				A053F6212E940F95002D7968 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetStepperExtension;
-			productName = WidgetStepperExtension;
-			productReference = A053F6232E940F95002D7968 /* WidgetStepperExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -376,9 +404,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					A013CCF82ECDD07400F78958 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 					A053F5F12E940F71002D7968 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -389,9 +420,6 @@
 					A053F60B2E940F73002D7968 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = A053F5F12E940F71002D7968;
-					};
-					A053F6222E940F95002D7968 = {
-						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -404,6 +432,8 @@
 				Base,
 			);
 			mainGroup = A053F5E92E940F71002D7968;
+			packageReferences = (
+			);
 			productRefGroup = A053F5F32E940F71002D7968 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,12 +441,19 @@
 				A053F5F12E940F71002D7968 /* Stepper */,
 				A053F6012E940F73002D7968 /* StepperTests */,
 				A053F60B2E940F73002D7968 /* StepperUITests */,
-				A053F6222E940F95002D7968 /* WidgetStepperExtension */,
+				A013CCF82ECDD07400F78958 /* StepperWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A013CCF72ECDD07400F78958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A053F5F02E940F71002D7968 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,38 +477,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A053F6212E940F95002D7968 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A053F6332E940F97002D7968 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A013CCF52ECDD07400F78958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A013CD232ECDEBA700F78958 /* BackgroundGridView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A053F5EE2E940F71002D7968 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */,
 				A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */,
+				A013CCE62ECB57FA00F78958 /* CustomSlider.swift in Sources */,
 				A0CEDC392EAE375A00E69322 /* CalendarColumnView.swift in Sources */,
 				A0CEDC352EA5240B00E69322 /* SegmentedControll.swift in Sources */,
 				A0CEDC3B2EAE4D5100E69322 /* MonthPicker.swift in Sources */,
 				A0CEDC372EAE348F00E69322 /* Date+Extensions.swift in Sources */,
+				A013CD352ECF34D300F78958 /* Step.swift in Sources */,
 				A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */,
 				A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */,
-				A0B043342E943BB20086A53E /* StepModel.swift in Sources */,
 				A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */,
-				A088794F2EC909C400AF2A55 /* Router.swift in Sources */,
 				A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */,
 				A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */,
 				A053F6402E941214002D7968 /* HealtStore.swift in Sources */,
 				A0CEDC332EA514F900E69322 /* Tabs.swift in Sources */,
 				A088794C2EC750F100AF2A55 /* GoalScreen.swift in Sources */,
+				A013CCE42ECB31AA00F78958 /* Goal.swift in Sources */,
 				A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */,
+				A013CD382ECFA73000F78958 /* WidgetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,20 +531,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A053F61F2E940F95002D7968 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A053F62F2E940F95002D7968 /* WidgetStepper.swift in Sources */,
-				A053F6312E940F95002D7968 /* AppIntent.swift in Sources */,
-				A053F62D2E940F95002D7968 /* WidgetStepperLiveActivity.swift in Sources */,
-				A053F62B2E940F95002D7968 /* WidgetStepperBundle.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A013CD0B2ECDD07700F78958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A013CCF82ECDD07400F78958 /* StepperWidgetExtension */;
+			targetProxy = A013CD0A2ECDD07700F78958 /* PBXContainerItemProxy */;
+		};
 		A053F6042E940F73002D7968 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A053F5F12E940F71002D7968 /* Stepper */;
@@ -519,6 +552,78 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A013CD102ECDD07700F78958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StepperWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8GS4783WX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepperWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StepperWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.stepperApp.StepperWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A013CD112ECDD07700F78958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StepperWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8GS4783WX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepperWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StepperWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.stepperApp.StepperWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		A053F6142E940F73002D7968 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -654,6 +759,7 @@
 				DEVELOPMENT_TEAM = B8GS4783WX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stepper;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires permission to process corectly the data.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires permission to process corectly the data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -690,6 +796,7 @@
 				DEVELOPMENT_TEAM = B8GS4783WX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stepper;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires permission to process corectly the data.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires permission to process corectly the data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -782,61 +889,18 @@
 			};
 			name = Release;
 		};
-		A053F6392E940F97002D7968 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetStepper/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetStepper;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = personal.Stepper.WidgetStepper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A053F63A2E940F97002D7968 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetStepper/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetStepper;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = personal.Stepper.WidgetStepper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A013CD0F2ECDD07700F78958 /* Build configuration list for PBXNativeTarget "StepperWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A013CD102ECDD07700F78958 /* Debug */,
+				A013CD112ECDD07700F78958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A053F5ED2E940F71002D7968 /* Build configuration list for PBXProject "Stepper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -869,15 +933,6 @@
 			buildConfigurations = (
 				A053F61D2E940F73002D7968 /* Debug */,
 				A053F61E2E940F73002D7968 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A053F6382E940F97002D7968 /* Build configuration list for PBXNativeTarget "WidgetStepperExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A053F6392E940F97002D7968 /* Debug */,
-				A053F63A2E940F97002D7968 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
