@@ -6,6 +6,7 @@ struct StepperApp: App {
         WindowGroup {
             HomeStepView()
                 .environmentObject(MainViewModel())
+                .withRouter()
         }
     }
 }

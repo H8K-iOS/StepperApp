@@ -4,6 +4,7 @@ import WidgetKit
 struct HomeStepView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
+    @Environment(Router.self) var router
     @State var currentTab: Tab = .monthly
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
@@ -14,7 +15,7 @@ struct HomeStepView: View {
     let daysOfWeek = Date.cpitalizedFirstLetterOfWeek
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     
-    //MARK: Initializeƒrs
+    //MARK: Initializers
     init() {
         UITabBar.appearance().isHidden = true
     }
@@ -28,14 +29,15 @@ struct HomeStepView: View {
             VStack(spacing: 22) {
                 // Steps View
                 if let step = vm.todaySteps.first {
-                    TodaysSteps(showSheet: $showSheet,
-                                step: step,
+                    TodaysSteps(step: step,
+                                selector: router.navigateToGoalScreen,
                                 goal: vm.goal,
                                 stepProgress: 4,
                                 activeStreak: vm.activeStreak,
                                 previusStreak: vm.previusStreak)
-                    
                 }
+                
+                
                 
                 // Widget Button
                 widgetsButton
@@ -66,9 +68,6 @@ struct HomeStepView: View {
                     await vm.loadStepsForAllTime()
                 }
             }
-        }
-        .fullScreenCover(isPresented: $showSheet) {
-            GoalScreen(stepGoal: $vm.goal)
         }
     }
 }
@@ -106,6 +105,7 @@ extension HomeStepView {
         }
     }
     
+    //TODO: - to struct + vm
     @ViewBuilder
     func CalendarView() -> some View {
         LazyVGrid(columns: columns) {
@@ -122,7 +122,6 @@ extension HomeStepView {
                 }
             }
         }
-
     }
     
     @ViewBuilder
@@ -174,7 +173,7 @@ extension HomeStepView {
         }
         .glowEffect(color: .green, radius: 6)
         .onTapGesture {
-            print("\(self.vm.goal)")
+            router.navigateToWidgetGalleryScreen()
         }
     }
 }

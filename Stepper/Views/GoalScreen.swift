@@ -2,11 +2,10 @@ import SwiftUI
 
 struct GoalScreen: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var stepGoal: Int
+    @EnvironmentObject var vm: MainViewModel
     @State var sliderValue: CGFloat = 10000
     @State private var selectedColor: Color? = nil
     @State private var selectedGoal: Goal? = nil
-   // var selector: ()->Void
     private let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
     
     private let array: [Goal] = [
@@ -15,6 +14,7 @@ struct GoalScreen: View {
         Goal(imageSystemName: "flame.fill", stepGoal: 15000, difficult: "hard", color: .orange),
         Goal(imageSystemName: "trophy.fill", stepGoal: 20000, difficult: "extreme", color: .pink)
     ]
+    
     var body: some View {
         /// MARK: View Struct
         /// Background
@@ -53,18 +53,25 @@ struct GoalScreen: View {
                         self.selectedColor = .green
                         ///
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            self.stepGoal = Int(sliderValue)
+                            vm.goal = Int(sliderValue)
                             self.dismiss()
                         }
                     }
                 }
             }
-            .padding(22)
-            
+            //.padding(22)
+            .navigationBarBackButtonHidden()
         }
+        .padding(22)
         .frame(height: UIScreen.main.bounds.height)
+        .overlay(alignment: .topLeading) {
+            NavigationBackButton() {
+                self.dismiss()
+            }
+                .padding(.top, 22)
+        }
         .onAppear {
-            self.sliderValue = CGFloat(stepGoal)
+            self.sliderValue = CGFloat(vm.goal)
         }
     }
     
@@ -200,5 +207,6 @@ struct GoalScreen: View {
 }
 
 #Preview {
-    GoalScreen(stepGoal: .constant(10000))
+    GoalScreen()
+        .environmentObject(MainViewModel())
 }

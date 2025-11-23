@@ -8,6 +8,7 @@ final class MainViewModel: ObservableObject {
     private let kStepsToday = "steps"
     
     private let widgetManager: WidgetRefreshable
+    private let widgetStyleService = WidgetStyleService()
     var healthStore = HealtStore()
     @Published var activeStreak: Int = 0 {
         didSet {
@@ -54,7 +55,7 @@ final class MainViewModel: ObservableObject {
         self.healthStore.todaySteps 
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     ///Health kit methods
     ///
     private func setupHK() async {

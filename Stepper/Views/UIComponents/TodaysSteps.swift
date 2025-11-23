@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct TodaysSteps: View {
-    @Binding var showSheet: Bool
-    let step: StepModel
+    
+    let step: StepModel?
+    let selector: () -> Void
     let goal: Int
     let stepProgress: Int
     let activeStreak: Int?
@@ -28,7 +29,7 @@ struct TodaysSteps: View {
                         StepsView()
                         
                         ///MARK: Progress view
-                        StepProgress(currentSteps: step.count, goal: goal)
+                        StepProgress(currentSteps: step?.count ?? 0, goal: goal)
                             .padding(.vertical, 8)
                         
                         ///MARK: Streak Container
@@ -53,7 +54,7 @@ struct TodaysSteps: View {
     @ViewBuilder
     func StepsView() -> some View {
         VStack(alignment: .leading) {
-            Text("\(step.count)")
+            Text("\(step?.count ?? 0)")
                 .font(.system(size: 42, weight: .bold).monospaced())
             Text("Steps today")
                 .font(.system(size: 14, weight: .medium).monospaced())
@@ -98,7 +99,7 @@ struct TodaysSteps: View {
                 LinearGradient(colors: [.green.opacity(0.3), .green.opacity(0.8), .green.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
             .onTapGesture {
-                self.showSheet.toggle()
+                selector()
             }
 
     }

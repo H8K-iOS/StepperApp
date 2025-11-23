@@ -15,6 +15,8 @@
 		A013CD232ECDEBA700F78958 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
 		A013CD352ECF34D300F78958 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD342ECF34CC00F78958 /* Step.swift */; };
 		A013CD382ECFA73000F78958 /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
+		A013CD542ED1C50200F78958 /* WidgetGalleryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD532ED1C4F800F78958 /* WidgetGalleryScreen.swift */; };
+		A013CD572ED1C67C00F78958 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD562ED1C67A00F78958 /* Router.swift */; };
 		A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DB1652E9449F200CF6E98 /* Helpers.swift */; };
 		A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F52E940F71002D7968 /* StepperApp.swift */; };
 		A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F5F72E940F71002D7968 /* HomeStepView.swift */; };
@@ -35,6 +37,10 @@
 		A0CEDC392EAE375A00E69322 /* CalendarColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC382EAE375000E69322 /* CalendarColumnView.swift */; };
 		A0CEDC3B2EAE4D5100E69322 /* MonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */; };
 		A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC3C2EAE4F2A00E69322 /* View+Extensions.swift */; };
+		A0E33FE12ED1D017005D2F9B /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E33FE02ED1D007005D2F9B /* NavigationBackButton.swift */; };
+		A0E33FE72ED3745B005D2F9B /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
+		A0E33FED2ED38440005D2F9B /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E33FEC2ED38440005D2F9B /* SharedUI */; };
+		A0E33FEF2ED38445005D2F9B /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E33FEE2ED38445005D2F9B /* SharedUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,8 @@
 		A013CD202ECDD54800F78958 /* StepperWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepperWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A013CD342ECF34CC00F78958 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		A013CD372ECFA72D00F78958 /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
+		A013CD532ED1C4F800F78958 /* WidgetGalleryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGalleryScreen.swift; sourceTree = "<group>"; };
+		A013CD562ED1C67A00F78958 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A03DB1652E9449F200CF6E98 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		A053F5F22E940F71002D7968 /* Stepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stepper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A053F5F52E940F71002D7968 /* StepperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperApp.swift; sourceTree = "<group>"; };
@@ -108,6 +116,7 @@
 		A0CEDC382EAE375000E69322 /* CalendarColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarColumnView.swift; sourceTree = "<group>"; };
 		A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPicker.swift; sourceTree = "<group>"; };
 		A0CEDC3C2EAE4F2A00E69322 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		A0E33FE02ED1D007005D2F9B /* NavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -118,10 +127,17 @@
 			);
 			target = A013CCF82ECDD07400F78958 /* StepperWidgetExtension */;
 		};
+		A0E33FE92ED374CA005D2F9B /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIntent.swift,
+			);
+			target = A053F5F12E940F71002D7968 /* Stepper */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A013CCFC2ECDD07400F78958 /* StepperWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A013CD0E2ECDD07700F78958 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StepperWidget; sourceTree = "<group>"; };
+		A013CCFC2ECDD07400F78958 /* StepperWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A0E33FE92ED374CA005D2F9B /* PBXFileSystemSynchronizedBuildFileExceptionSet */, A013CD0E2ECDD07700F78958 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StepperWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E33FEF2ED38445005D2F9B /* SharedUI in Frameworks */,
 				A013CCFB2ECDD07400F78958 /* SwiftUI.framework in Frameworks */,
 				A013CCFA2ECDD07400F78958 /* WidgetKit.framework in Frameworks */,
 			);
@@ -138,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E33FED2ED38440005D2F9B /* SharedUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +182,14 @@
 				A013CD372ECFA72D00F78958 /* WidgetManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A013CD552ED1C5F200F78958 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A013CD562ED1C67A00F78958 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		A03DB1642E9449E100CF6E98 /* Utilities */ = {
@@ -203,13 +229,14 @@
 		A053F5F42E940F71002D7968 /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
+				A053F5F52E940F71002D7968 /* StepperApp.swift */,
 				A0BE1A102E9421BD0061E350 /* Stepper.entitlements */,
+				A013CD552ED1C5F200F78958 /* Router */,
 				A013CD362ECFA71D00F78958 /* Managers */,
 				A03DB1642E9449E100CF6E98 /* Utilities */,
 				A0B043352E943D1F0086A53E /* Views */,
 				A0CEDC292E9D3BDD00E69322 /* ViewModels */,
 				A0B043322E943BA20086A53E /* Models */,
-				A053F5F52E940F71002D7968 /* StepperApp.swift */,
 				A053F63E2E941202002D7968 /* Storage */,
 				A053F63D2E941182002D7968 /* Assets */,
 			);
@@ -280,6 +307,7 @@
 		A088794A2EC7501A00AF2A55 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A0E33FE02ED1D007005D2F9B /* NavigationBackButton.swift */,
 				A013CCE52ECB57F600F78958 /* CustomSlider.swift */,
 				A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */,
 				A0CEDC302E9D3F6400E69322 /* TodaysSteps.swift */,
@@ -302,6 +330,7 @@
 		A0B043352E943D1F0086A53E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A013CD532ED1C4F800F78958 /* WidgetGalleryScreen.swift */,
 				A088794B2EC750D500AF2A55 /* GoalScreen.swift */,
 				A053F5F72E940F71002D7968 /* HomeStepView.swift */,
 				A088794A2EC7501A00AF2A55 /* UIComponents */,
@@ -337,6 +366,7 @@
 			);
 			name = StepperWidgetExtension;
 			packageProductDependencies = (
+				A0E33FEE2ED38445005D2F9B /* SharedUI */,
 			);
 			productName = StepperWidgetExtension;
 			productReference = A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */;
@@ -433,6 +463,7 @@
 			);
 			mainGroup = A053F5E92E940F71002D7968;
 			packageReferences = (
+				A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */,
 			);
 			productRefGroup = A053F5F32E940F71002D7968 /* Products */;
 			projectDirPath = "";
@@ -485,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A013CD232ECDEBA700F78958 /* BackgroundGridView.swift in Sources */,
+				A0E33FE72ED3745B005D2F9B /* WidgetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +524,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E33FE12ED1D017005D2F9B /* NavigationBackButton.swift in Sources */,
 				A053F5F82E940F71002D7968 /* HomeStepView.swift in Sources */,
+				A013CD542ED1C50200F78958 /* WidgetGalleryScreen.swift in Sources */,
 				A0CEDC2B2E9D3BEF00E69322 /* MainViewModel.swift in Sources */,
 				A013CCE62ECB57FA00F78958 /* CustomSlider.swift in Sources */,
 				A0CEDC392EAE375A00E69322 /* CalendarColumnView.swift in Sources */,
@@ -501,6 +535,7 @@
 				A0CEDC372EAE348F00E69322 /* Date+Extensions.swift in Sources */,
 				A013CD352ECF34D300F78958 /* Step.swift in Sources */,
 				A053F5F62E940F71002D7968 /* StepperApp.swift in Sources */,
+				A013CD572ED1C67C00F78958 /* Router.swift in Sources */,
 				A0CEDC312E9D3F7500E69322 /* TodaysSteps.swift in Sources */,
 				A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */,
 				A03DB1662E9449F700CF6E98 /* Helpers.swift in Sources */,
@@ -938,6 +973,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../../swift/SharedUI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0E33FEC2ED38440005D2F9B /* SharedUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */;
+			productName = SharedUI;
+		};
+		A0E33FEE2ED38445005D2F9B /* SharedUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */;
+			productName = SharedUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A053F5EA2E940F71002D7968 /* Project object */;
 }

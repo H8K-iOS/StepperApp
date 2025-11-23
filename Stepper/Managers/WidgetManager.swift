@@ -12,6 +12,20 @@ final class WidgetManager: WidgetRefreshable {
     }
 }
 
+final class WidgetStyleService {
+    private let storage = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+    
+    private let kStyle = "WidgetStyle"
+    
+    func save(_ style: WidgetStyle) {
+        self.storage?.set(style.rawValue, forKey: kStyle)
+    }
+    
+    func load() -> WidgetStyle {
+        WidgetStyle(rawValue: storage?.string(forKey: kStyle) ?? "steps") ?? .steps
+    }
+}
+
 //MARK: - Widget Styles
 /// available style
 /// store userdefaults chosen style
