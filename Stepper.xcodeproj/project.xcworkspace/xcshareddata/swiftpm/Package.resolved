@@ -1,0 +1,15 @@
+{
+  "originHash" : "42a288a16438ba5e07534d499bd2db37da009c884cfb7fa96f8a7525ab4bde07",
+  "pins" : [
+    {
+      "identity" : "steppersharedui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/H8K-iOS/StepperSharedUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "44abb623597b07dd1e32a68ac31f0198af6d11ca"
+      }
+    }
+  ],
+  "version" : 3
+}

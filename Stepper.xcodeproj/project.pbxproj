@@ -39,8 +39,8 @@
 		A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC3C2EAE4F2A00E69322 /* View+Extensions.swift */; };
 		A0E33FE12ED1D017005D2F9B /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E33FE02ED1D007005D2F9B /* NavigationBackButton.swift */; };
 		A0E33FE72ED3745B005D2F9B /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
-		A0E33FED2ED38440005D2F9B /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E33FEC2ED38440005D2F9B /* SharedUI */; };
-		A0E33FEF2ED38445005D2F9B /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E33FEE2ED38445005D2F9B /* SharedUI */; };
+		A0E340562ED499AB005D2F9B /* StepperSharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E340552ED499AB005D2F9B /* StepperSharedUI */; };
+		A0E340582ED499C0005D2F9B /* StepperSharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E340572ED499C0005D2F9B /* StepperSharedUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0E33FEF2ED38445005D2F9B /* SharedUI in Frameworks */,
+				A0E340582ED499C0005D2F9B /* StepperSharedUI in Frameworks */,
 				A013CCFB2ECDD07400F78958 /* SwiftUI.framework in Frameworks */,
 				A013CCFA2ECDD07400F78958 /* WidgetKit.framework in Frameworks */,
 			);
@@ -155,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0E33FED2ED38440005D2F9B /* SharedUI in Frameworks */,
+				A0E340562ED499AB005D2F9B /* StepperSharedUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +366,7 @@
 			);
 			name = StepperWidgetExtension;
 			packageProductDependencies = (
-				A0E33FEE2ED38445005D2F9B /* SharedUI */,
+				A0E340572ED499C0005D2F9B /* StepperSharedUI */,
 			);
 			productName = StepperWidgetExtension;
 			productReference = A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */;
@@ -463,7 +463,7 @@
 			);
 			mainGroup = A053F5E92E940F71002D7968;
 			packageReferences = (
-				A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */,
+				A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */,
 			);
 			productRefGroup = A053F5F32E940F71002D7968 /* Products */;
 			projectDirPath = "";
@@ -974,23 +974,27 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../../../swift/SharedUI;
+/* Begin XCRemoteSwiftPackageReference section */
+		A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/H8K-iOS/StepperSharedUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A0E33FEC2ED38440005D2F9B /* SharedUI */ = {
+		A0E340552ED499AB005D2F9B /* StepperSharedUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */;
-			productName = SharedUI;
+			package = A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */;
+			productName = StepperSharedUI;
 		};
-		A0E33FEE2ED38445005D2F9B /* SharedUI */ = {
+		A0E340572ED499C0005D2F9B /* StepperSharedUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A0E33FEB2ED38353005D2F9B /* XCLocalSwiftPackageReference "../../../../swift/SharedUI" */;
-			productName = SharedUI;
+			package = A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */;
+			productName = StepperSharedUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

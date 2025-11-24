@@ -1,7 +1,7 @@
-import SharedUI
 import WidgetKit
 import SwiftUI
 import Foundation
+import StepperSharedUI
 
 
 struct Provider: AppIntentTimelineProvider {

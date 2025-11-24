@@ -1,6 +1,6 @@
 import SwiftUI
 import WidgetKit
-import SharedUI
+import StepperSharedUI
 
 struct WidgetGalleryScreen: View {
     @State  private var selected: WidgetStyle = WidgetStyleService().load()
