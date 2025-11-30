@@ -4,12 +4,12 @@ import WidgetKit
 struct HomeStepView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
-    @Environment(Router.self) var router
     @State var currentTab: Tab = .monthly
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
     @State private var date: Date = Date.now
-    @State var showSheet: Bool = false
+    @State var showSheetGoal: Bool = false
+    @State var showSheetWidget: Bool = false
    
     
     let daysOfWeek = Date.cpitalizedFirstLetterOfWeek
@@ -30,7 +30,7 @@ struct HomeStepView: View {
                 // Steps View
                 if let step = vm.todaySteps.first {
                     TodaysSteps(step: step,
-                                selector: router.navigateToGoalScreen,
+                                selector: presentGoal,
                                 goal: vm.goal,
                                 stepProgress: 4,
                                 activeStreak: vm.activeStreak,
@@ -61,7 +61,7 @@ struct HomeStepView: View {
                 }
             }
             
-            .onAppear {
+            .onAppear {	
                 days = date.calendarDisplayDays
                 Task {
                     await vm.loadMonthSteps(date)
@@ -69,6 +69,22 @@ struct HomeStepView: View {
                 }
             }
         }
+        
+        .fullScreenCover(isPresented: $showSheetGoal) {
+            GoalScreen(stepGoal: $vm.goal)
+        }
+        
+        .fullScreenCover(isPresented: $showSheetWidget) {
+            WidgetGalleryScreen()
+        }
+    }
+    
+    private func presentGoal() {
+        self.showSheetGoal.toggle()
+    }
+    
+    private func presentWidget() {
+        self.showSheetWidget.toggle()
     }
 }
 
@@ -85,7 +101,7 @@ extension HomeStepView {
             HStack {
                 Circle()
                     .frame(width: 10, height: 10)
-                    .foregroundStyle(isUnder10k(step.count) ? .red : .green)
+                   // .foregroundStyle(isUnder10k(step.count) ? .red : .green)
                 Text("\(step.count)")
                 Spacer()
                 Text(step.date.formatted(date: .abbreviated, time: .omitted))
@@ -173,7 +189,7 @@ extension HomeStepView {
         }
         .glowEffect(color: .green, radius: 6)
         .onTapGesture {
-            router.navigateToWidgetGalleryScreen()
+            self.presentWidget()
         }
     }
 }

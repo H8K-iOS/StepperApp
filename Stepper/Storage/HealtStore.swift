@@ -24,8 +24,21 @@ final class HealtStore {
             self.lastError = HealtError.healtDataIsNotAvailable
         }
     }
+    //MARK: - Methods Auth HK
+    ///MARK: HealthStore setup
+    ///
+    public func requestAuth() async {
+        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
+        guard let healtStore = self.healtStore else { return }
+        
+        do {
+            try await healtStore.requestAuthorization(toShare: [], read: [stepType])
+        } catch {
+            self.lastError = error
+        }
+    }
     
-    //MARK: - Methods
+    //MARK: - Methods Steps
     ///MARK: today steps
     public func getTodaySteps() async throws {
         guard let healtStore = self.healtStore else { return }
@@ -94,7 +107,6 @@ final class HealtStore {
             }
         }
     }
-    
     
     ///MARK: month steps
     ///
@@ -171,17 +183,14 @@ final class HealtStore {
         
     }
     
-    ///MARK: HealthStore setup
-    ///
-    public func requestAuth() async {
-        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
-        guard let healtStore = self.healtStore else { return }
+    //MARK: - Methods Calories
+    public func getTodaysCalories() async throws {
         
-        do {
-            try await healtStore.requestAuthorization(toShare: [], read: [stepType])
-        } catch {
-            self.lastError = error
-        }
+    }
+    
+    //MARK: - Methods Distance
+    public func getTodayDistance() async throws {
+        
     }
 }
 

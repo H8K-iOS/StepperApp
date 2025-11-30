@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GoalScreen: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var vm: MainViewModel
+    @Binding var stepGoal: Int
     @State var sliderValue: CGFloat = 10000
     @State private var selectedColor: Color? = nil
     @State private var selectedGoal: Goal? = nil
@@ -53,7 +53,7 @@ struct GoalScreen: View {
                         self.selectedColor = .green
                         ///
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            vm.goal = Int(sliderValue)
+                            stepGoal = Int(sliderValue)
                             self.dismiss()
                         }
                     }
@@ -71,7 +71,7 @@ struct GoalScreen: View {
                 .padding(.top, 22)
         }
         .onAppear {
-            self.sliderValue = CGFloat(vm.goal)
+            self.sliderValue = CGFloat(stepGoal)
         }
     }
     
@@ -207,6 +207,5 @@ struct GoalScreen: View {
 }
 
 #Preview {
-    GoalScreen()
-        .environmentObject(MainViewModel())
+    GoalScreen(stepGoal: .constant(10000))
 }

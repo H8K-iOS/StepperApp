@@ -6,6 +6,7 @@ final class MainViewModel: ObservableObject {
     private let kStepGoal = "stepGoal"
     private let kStreak = "activeStreak"
     private let kStepsToday = "steps"
+    private let kCalories = "calories"
     
     private let widgetManager: WidgetRefreshable
     private let widgetStyleService = WidgetStyleService()
@@ -35,6 +36,18 @@ final class MainViewModel: ObservableObject {
         }
     }
     
+    private var caloriesToday: Int = 0 {
+        didSet {
+            
+            widgetManager.refresh()
+        }
+    }
+    private var distanceToday: Int = 0 {
+        didSet {
+            
+            widgetManager.refresh()
+        }
+    }
     //MARK: - Initializer
     init(widgetManager: WidgetRefreshable = WidgetManager()) {
         self.widgetManager = widgetManager
@@ -60,8 +73,15 @@ final class MainViewModel: ObservableObject {
     ///
     private func setupHK() async {
         await healthStore.requestAuth()
+        //Steps
         try? await healthStore.getTodaySteps()
         saveStepsToday()
+       
+        //Calories
+        
+        //Distance
+        
+        //Widget
         widgetManager.refresh()
     }
     
@@ -87,18 +107,18 @@ final class MainViewModel: ObservableObject {
     
     //MARK: UserDefaults Methods
     ///Goal
+    ///for widget
     func saveGoal() {
         let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
-        shared?.set(goal, forKey: kStepGoal)
+        shared?.set(self.goal, forKey: kStepGoal)
         
     }
     
     func loadGoal() {
         let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
             let saved = shared?.integer(forKey: kStepGoal) ?? 0
-            goal = saved == 0 ? 5000 : saved
+            self.goal = saved == 0 ? 5000 : saved
     }
-    
     ///Steps today
     ///for widget
     func saveStepsToday() {
@@ -119,13 +139,20 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    func loadStreak() {
+    ///Calories today
+    ///for widget
+    func saveCalories() {
         let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
-          activeStreak  = shared?.integer(forKey: kStreak) ?? 0
-
+        shared?.set(self.caloriesToday, forKey: kCalories)
     }
     
-    //MARK: Other methods
+    ///Distance today
+    ///for widget
+    func saveDistance() {
+        
+    }
+    
+    //MARK: - Other Methods in App
     ///Streak Methods
     ///Updating + calculate actual streak
     func updateStreak(goal: Int) {

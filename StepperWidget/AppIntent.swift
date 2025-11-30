@@ -5,8 +5,7 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource { "Widget Settings" }
     static var description: IntentDescription { "Choose widget style" }
 
-    // An example configurable parameter.
-    @Parameter(title: "Widget Style")
+    @Parameter(title: "Widget Style", default: WidgetStyle.steps)
     var style: WidgetStyle
     
     
