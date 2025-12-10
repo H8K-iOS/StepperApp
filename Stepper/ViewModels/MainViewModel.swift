@@ -6,17 +6,20 @@ final class MainViewModel: ObservableObject {
     private let kStepGoal = "stepGoal"
     private let kStreak = "activeStreak"
     private let kStepsToday = "steps"
-    private let kCalories = "calories"
+    private let kDistance = "distance"
     
-    private let widgetManager: WidgetRefreshable
+    
     private let widgetStyleService = WidgetStyleService()
-    var healthStore = HealtStore()
+    @Published var healthStore = HealtStore()
     @Published var activeStreak: Int = 0 {
         didSet {
             saveStreak()
             widgetManager.refresh()
         }
     }
+    
+    public let widgetManager: WidgetRefreshable
+    @Published var monthSteps: [StepModel] = []
     
     @Published var previusStreak: Int? = nil {
         didSet {
@@ -38,16 +41,10 @@ final class MainViewModel: ObservableObject {
     
     private var caloriesToday: Int = 0 {
         didSet {
-            
             widgetManager.refresh()
         }
     }
-    private var distanceToday: Int = 0 {
-        didSet {
-            
-            widgetManager.refresh()
-        }
-    }
+
     //MARK: - Initializer
     init(widgetManager: WidgetRefreshable = WidgetManager()) {
         self.widgetManager = widgetManager
@@ -58,36 +55,42 @@ final class MainViewModel: ObservableObject {
     }
     
     //MARK: Properties
-    var montSteps: [StepModel] {
-        self.healthStore.monthSteps.sorted { lhs, rhs in
-            lhs.date > rhs.date
-        }
-    }
+//    var monthSteps: [StepModel] {
+//        self.healthStore.monthSteps.sorted { lhs, rhs in
+//            lhs.date > rhs.date
+//        }
+//    }
     
     var todaySteps: [StepModel] {
         self.healthStore.todaySteps 
     }
+
+    var todatyDistance: Double {
+        self.healthStore.todayDistance
+    }
+
     
     //MARK: - Methods
     ///Health kit methods
     ///
     private func setupHK() async {
-        await healthStore.requestAuth()
+        await healthStore.requestAuthSteps()
+        await healthStore.requestAuthDistance()
         //Steps
         try? await healthStore.getTodaySteps()
         saveStepsToday()
-       
-        //Calories
         
         //Distance
-        
+        try? await healthStore.getTodayDistance()
+        saveDistance()
         //Widget
         widgetManager.refresh()
     }
     
     @MainActor
     func loadMonthSteps(_ date: Date) async {
-        try? await healthStore.getMonthSteps(for: date)
+        let steps = await healthStore.getMonthSteps(for: date)
+        self.monthSteps = steps
     }
     
     func loadStepsForAllTime() async {
@@ -138,18 +141,14 @@ final class MainViewModel: ObservableObject {
             shared?.set(activeStreak, forKey: kStreak)
         }
     }
-    
-    ///Calories today
-    ///for widget
-    func saveCalories() {
-        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
-        shared?.set(self.caloriesToday, forKey: kCalories)
-    }
-    
+
+
     ///Distance today
     ///for widget
+ 
     func saveDistance() {
-        
+        let shared = UserDefaults(suiteName: "group.com.mycompany.stepperApp")
+        shared?.set(self.todatyDistance, forKey: kDistance)
     }
     
     //MARK: - Other Methods in App

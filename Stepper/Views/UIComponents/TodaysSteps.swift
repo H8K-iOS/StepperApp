@@ -5,7 +5,6 @@ struct TodaysSteps: View {
     let step: StepModel?
     let selector: () -> ()
     let goal: Int
-    let stepProgress: Int
     let activeStreak: Int?
     let previusStreak: Int?
     

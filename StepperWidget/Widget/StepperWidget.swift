@@ -48,10 +48,8 @@ struct StepperWidgetEntryView : View {
         switch entry.style {
         case .steps:
             StepsWidgetView(steps: data.getSteps(), goal: data.getGoal(), streak: data.getStreak())
-        case .calories:
-            CaloriesWidgetView(calories: 100, goalCalories: 200)
         case .distance:
-            DistanceWidgetView(distance: 1, steps: data.getSteps(), goal: data.getGoal())
+            DistanceWidgetView(distance: data.getDistance(), steps: data.getSteps(), goal: data.getGoal())
         }
     }
 }
@@ -100,8 +98,6 @@ struct StepperWidget: Widget {
         switch style {
         case .steps:
             grdnSteps
-        case .calories:
-            grdnCalories
         case .distance:
             grdnDistance
         }

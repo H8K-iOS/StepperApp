@@ -4,6 +4,10 @@
 <dict>
 	<key>NSExtension</key>
 	<dict>
+        <key>NSHealthShareUsageDescription</key>
+        <string>Для отображения шагов</string>
+        <key>NSHealthUpdateUsageDescription</key>
+        <string>Для обновления данных</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>

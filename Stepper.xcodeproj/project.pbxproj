@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00C763E2EE9B95900930C34 /* LoadAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A00C763D2EE9B95900930C34 /* LoadAnimation.json */; };
+		A00C76412EE9BB3900930C34 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A00C76402EE9BB3900930C34 /* Lottie */; };
 		A013CCE42ECB31AA00F78958 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CCE32ECB31A600F78958 /* Goal.swift */; };
 		A013CCE62ECB57FA00F78958 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CCE52ECB57F600F78958 /* CustomSlider.swift */; };
 		A013CCFA2ECDD07400F78958 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053F6252E940F95002D7968 /* WidgetKit.framework */; };
@@ -26,6 +28,7 @@
 		A053F6402E941214002D7968 /* HealtStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053F63F2E941214002D7968 /* HealtStore.swift */; };
 		A06EEDDD2EDCEFA500463D1C /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = A06EEDDC2EDCEFA500463D1C /* Contents.json */; };
 		A06EEDDE2EDCEFA500463D1C /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = A06EEDDC2EDCEFA500463D1C /* Contents.json */; };
+		A06EEDDF2EDF5B7A00463D1C /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
 		A08879472EC35A5700AF2A55 /* DayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879462EC35A4800AF2A55 /* DayCardView.swift */; };
 		A08879492EC73DF800AF2A55 /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08879482EC73DEB00AF2A55 /* BackgroundGridView.swift */; };
 		A088794C2EC750F100AF2A55 /* GoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088794B2EC750D500AF2A55 /* GoalScreen.swift */; };
@@ -38,7 +41,6 @@
 		A0CEDC3B2EAE4D5100E69322 /* MonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC3A2EAE4D4B00E69322 /* MonthPicker.swift */; };
 		A0CEDC3D2EAE4F3000E69322 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEDC3C2EAE4F2A00E69322 /* View+Extensions.swift */; };
 		A0E33FE12ED1D017005D2F9B /* NavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E33FE02ED1D007005D2F9B /* NavigationBackButton.swift */; };
-		A0E33FE72ED3745B005D2F9B /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013CD372ECFA72D00F78958 /* WidgetManager.swift */; };
 		A0E340562ED499AB005D2F9B /* StepperSharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E340552ED499AB005D2F9B /* StepperSharedUI */; };
 		A0E340582ED499C0005D2F9B /* StepperSharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = A0E340572ED499C0005D2F9B /* StepperSharedUI */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A00C763D2EE9B95900930C34 /* LoadAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoadAnimation.json; sourceTree = "<group>"; };
 		A013CCE32ECB31A600F78958 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		A013CCE52ECB57F600F78958 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		A013CCF92ECDD07400F78958 /* StepperWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StepperWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E340562ED499AB005D2F9B /* StepperSharedUI in Frameworks */,
+				A00C76412EE9BB3900930C34 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +273,7 @@
 		A053F63D2E941182002D7968 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A00C763D2EE9B95900930C34 /* LoadAnimation.json */,
 				A053F5FB2E940F73002D7968 /* Preview Content */,
 				A053F5F92E940F73002D7968 /* Assets.xcassets */,
 			);
@@ -454,6 +459,7 @@
 			mainGroup = A053F5E92E940F71002D7968;
 			packageReferences = (
 				A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */,
+				A00C763F2EE9BAC600930C34 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A053F5F32E940F71002D7968 /* Products */;
 			projectDirPath = "";
@@ -483,6 +489,7 @@
 				A053F5FD2E940F73002D7968 /* Preview Assets.xcassets in Resources */,
 				A053F5FA2E940F73002D7968 /* Assets.xcassets in Resources */,
 				A06EEDDE2EDCEFA500463D1C /* Contents.json in Resources */,
+				A00C763E2EE9B95900930C34 /* LoadAnimation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A013CD232ECDEBA700F78958 /* BackgroundGridView.swift in Sources */,
-				A0E33FE72ED3745B005D2F9B /* WidgetManager.swift in Sources */,
+				A06EEDDF2EDF5B7A00463D1C /* WidgetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +972,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A00C763F2EE9BAC600930C34 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 4.5.2;
+			};
+		};
 		A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/H8K-iOS/StepperSharedUI";
@@ -976,6 +991,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A00C76402EE9BB3900930C34 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00C763F2EE9BAC600930C34 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		A0E340552ED499AB005D2F9B /* StepperSharedUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A0E340542ED499AB005D2F9B /* XCRemoteSwiftPackageReference "StepperSharedUI" */;

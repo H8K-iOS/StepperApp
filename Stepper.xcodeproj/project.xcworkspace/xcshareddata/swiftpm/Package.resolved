@@ -1,13 +1,22 @@
 {
-  "originHash" : "42a288a16438ba5e07534d499bd2db37da009c884cfb7fa96f8a7525ab4bde07",
+  "originHash" : "30ff417c365d79b3e3912d02ad84fa42d3448c7422a8c0726e20a37d09d20929",
   "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "a004050748dc197c56256a14dca49a035d74726c",
+        "version" : "4.5.2"
+      }
+    },
     {
       "identity" : "steppersharedui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/H8K-iOS/StepperSharedUI",
       "state" : {
         "branch" : "main",
-        "revision" : "80298f10349c504dab241c384f608e073efb692c"
+        "revision" : "10f59e30e538970e2f8cb2855fb19f1bb440fd97"
       }
     }
   ],

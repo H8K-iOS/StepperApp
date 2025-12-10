@@ -4,6 +4,7 @@ import WidgetKit
 struct HomeStepView: View {
     //MARK: Properties
     @EnvironmentObject var vm: MainViewModel
+    @Environment(\.scenePhase) var scenePhase
     @State var currentTab: Tab = .monthly
     @State var shakeValue: CGFloat = 0
     @State private var days: [Date] = []
@@ -32,13 +33,17 @@ struct HomeStepView: View {
                     TodaysSteps(step: step,
                                 selector: presentGoal,
                                 goal: vm.goal,
-                                stepProgress: 4,
+                                activeStreak: vm.activeStreak,
+                                previusStreak: vm.previusStreak)
+
+                } else {
+                    TodaysSteps(step: StepModel(count: 0, date: Date()),
+                                selector: presentGoal,
+                                goal: vm.goal,
                                 activeStreak: vm.activeStreak,
                                 previusStreak: vm.previusStreak)
                 }
-                
-                
-                
+            
                 // Widget Button
                 widgetsButton
                 
@@ -50,18 +55,26 @@ struct HomeStepView: View {
                 
                 ///debug
                 //list
-                
-                Spacer()
+
             }
+            
             .padding()
             .onChange(of: date) {
                 days = date.calendarDisplayDays
                 Task {
                     await self.vm.loadMonthSteps(date)
                 }
+                
             }
             
-            .onAppear {	
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    Task { try? await self.vm.healthStore.getTodaySteps() }
+                    self.vm.widgetManager.refresh()
+                }
+            }
+            
+            .onAppear {
                 days = date.calendarDisplayDays
                 Task {
                     await vm.loadMonthSteps(date)
@@ -97,7 +110,7 @@ struct HomeStepView: View {
 extension HomeStepView {
     //MARK: - UI for history tab
     private var list: some View {
-        List(vm.montSteps) { step in
+        List(vm.monthSteps) { step in
             HStack {
                 Circle()
                     .frame(width: 10, height: 10)
@@ -120,21 +133,31 @@ extension HomeStepView {
             }
         }
     }
-    
-    //TODO: - to struct + vm
+
     @ViewBuilder
     func CalendarView() -> some View {
         LazyVGrid(columns: columns) {
-            ForEach(days, id: \.self) { day in
-                let dayForm = day.formatted(.dateTime.day())
-                let stepForDay = vm.montSteps.first(where: {
-                    Calendar.current.isDate($0.date, inSameDayAs: day)
-                })
-                
-                if day.monthInt != date.monthInt {
-                    Text("")
-                } else {
-                    CalendarColumnView(day: dayForm, isAchive: stepForDay != nil && stepForDay!.count >= vm.goal)
+            if !vm.monthSteps.isEmpty {
+                ForEach(days, id: \.self) { day in
+                    let dayForm = day.formatted(.dateTime.day())
+                    let stepForDay = vm.monthSteps.first(where: {
+                        Calendar.current.isDate($0.date, inSameDayAs: day)
+                    })
+                    
+                    if day.monthInt != date.monthInt {
+                        Text("")
+                    } else {
+                        CalendarColumnView(day: dayForm, isAchive: stepForDay != nil && stepForDay!.count >= vm.goal)
+                    }
+                }
+            } else {
+                ForEach(days, id: \.self) { day in
+                    let dayForm = day.formatted(.dateTime.day())
+                    if day.monthInt != date.monthInt {
+                        Text("")
+                    } else {
+                        CalendarColumnPreview(day: dayForm)
+                    }
                 }
             }
         }
@@ -142,11 +165,11 @@ extension HomeStepView {
     
     @ViewBuilder
     func TabControll() -> some View {
-            VStack {
+        VStack(spacing: 0) {
                 MonthPicker(date: $date)
                 
                 TabView(selection: $currentTab) {
-                    VStack {
+                    VStack(spacing: 0) {
                         ShortDaySymbols()
                         CalendarView()
                             .padding(.vertical)
@@ -155,41 +178,38 @@ extension HomeStepView {
                     }
                     .background(.clear)
                     
-                    DayCardView(step: vm.montSteps,
+                    DayCardView(step: vm.monthSteps,
                                 goal: vm.goal)
                     .tag(Tab.daily)
                     .toolbar(.hidden, for: .tabBar)
                     .background(.clear)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                Spacer()
             }
     }
-    
-    func test() -> Void {
-        print("hi")
-    }
+
     
     //TODO: -
     private var widgetsButton: some View {
-        HStack{
-            Text("Widget Gallery")
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right.2")
-        }
-        .frame(maxHeight: 22)
-        .foregroundStyle(.green.gradient)
-        .font(.system(size: 16, weight: .semibold).monospaced())
-        .padding()
-        .overlay {
-            Rectangle()
-                .stroke(.green.gradient, lineWidth: 3)
-        }
-        .glowEffect(color: .green, radius: 6)
-        .onTapGesture {
-            self.presentWidget()
+        Button {
+            self.showSheetWidget.toggle()
+        } label: {
+            HStack {
+                Text("Widget Gallery")
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right.2")
+            }
+            .frame(maxHeight: 22)
+            .foregroundStyle(.green.gradient)
+            .font(.system(size: 16, weight: .semibold).monospaced())
+            .padding()
+            .overlay {
+                Rectangle()
+                    .stroke(.green.gradient, lineWidth: 3)
+                    .glowEffect(color: .green, radius: 6)
+            }
         }
     }
 }

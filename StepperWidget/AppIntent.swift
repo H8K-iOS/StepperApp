@@ -1,6 +1,7 @@
 import WidgetKit
 import AppIntents
 
+
 struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource { "Widget Settings" }
     static var description: IntentDescription { "Choose widget style" }
@@ -15,18 +16,14 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     }
 }
 
-enum WidgetStyle: String, AppEnum {
+public enum WidgetStyle: String, AppEnum {
     case steps
-    case calories
     case distance
     
-    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Widget Style")
+    public static let typeDisplayRepresentation = TypeDisplayRepresentation(name: "Widget Style")
     
-    static var caseDisplayRepresentations: [WidgetStyle : DisplayRepresentation] = [
+    public static let caseDisplayRepresentations: [WidgetStyle : DisplayRepresentation] = [
         .steps: "Steps",
-        .calories: "Calories",
         .distance: "Distance"
     ]
-    
-    
 }

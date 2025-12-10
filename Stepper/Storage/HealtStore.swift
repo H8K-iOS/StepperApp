@@ -14,8 +14,13 @@ final class HealtStore {
     var totalSteps: [StepModel] = []
     var weekSteps: [StepModel] = []
     var monthSteps: [StepModel] = []
+    var todayDistance: Double = 0
     var healtStore: HKHealthStore?
     var lastError: Error?
+    
+//    var isHealthAuthorized: Bool {
+//        checkAuthorizationStatus()
+//    }
     
     init() {
         if HKHealthStore.isHealthDataAvailable() {
@@ -27,7 +32,7 @@ final class HealtStore {
     //MARK: - Methods Auth HK
     ///MARK: HealthStore setup
     ///
-    public func requestAuth() async {
+    public func requestAuthSteps() async {
         guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
         guard let healtStore = self.healtStore else { return }
         
@@ -37,6 +42,28 @@ final class HealtStore {
             self.lastError = error
         }
     }
+    
+    public func requestAuthDistance() async {
+        guard let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning) else { return }
+        guard let healtStore else { return }
+        
+        do {
+            try await healtStore.requestAuthorization(toShare: [], read: [distanceType])
+        } catch {
+            self.lastError = error
+        }
+    }
+    
+//    public func checkAuthorizationStatus() -> Bool {
+//        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount),
+//              //let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)
+//        else { return false }
+//
+//        let s = healtStore?.authorizationStatus(for: stepType)
+//
+//        return s == .sharingAuthorized
+//    }
+//     
     
     //MARK: - Methods Steps
     ///MARK: today steps
@@ -110,8 +137,8 @@ final class HealtStore {
     
     ///MARK: month steps
     ///
-    public func getMonthSteps(for date: Date) async throws {
-        guard let healtStore = healtStore else { return }
+    public func getMonthSteps(for date: Date) async -> [StepModel] {
+        guard let healtStore = healtStore else { return []}
         let startDate = date.startOfMonth
         let endDate = date.valueEndOfMont
         
@@ -125,21 +152,25 @@ final class HealtStore {
                                                                     anchorDate: endDate,
                                                                     intervalComponents: everyDay)
         
-        let stepCount = try await sumOfStepsQuery.result(for: healtStore)
+        let result = try? await sumOfStepsQuery.result(for: healtStore)
+        guard let result else { return [] }
         
         DispatchQueue.main.async {
             self.monthSteps.removeAll()
         }
         
-        stepCount.enumerateStatistics(from: startDate, to: endDate) { statistic, _ in
+        var steps: [StepModel] = []
+        
+        result.enumerateStatistics(from: startDate, to: endDate) { statistic, _ in
             let count = statistic.sumQuantity()?.doubleValue(for: .count()) ?? 0
-            let step = StepModel(count: Int(count), date: statistic.startDate)
-            if step.count > 0 {
-                DispatchQueue.main.async {
-                    self.monthSteps.append(step)
-                }
+            //let step = StepModel(count: Int(count), date: statistic.startDate)
+            if count > 0 {
+                steps.append(StepModel(count: Int(count),
+                                       date: statistic.startDate))
             }
         }
+        
+        return steps.sorted(by: {$0.date > $1.date})
     }
     
     ///MARK: All steps for all time
@@ -183,14 +214,28 @@ final class HealtStore {
         
     }
     
-    //MARK: - Methods Calories
-    public func getTodaysCalories() async throws {
-        
-    }
-    
     //MARK: - Methods Distance
     public func getTodayDistance() async throws {
+        guard let healtStore else { return }
+        let type = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+        let startOfDay = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
         
+        return await withCheckedContinuation { continuation in
+            let query = HKStatisticsQuery(quantityType: type,
+                                          quantitySamplePredicate: predicate,
+                                          options: .cumulativeSum) { _, stat, _ in
+                
+                let km = stat?.sumQuantity()?.doubleValue(for: .meterUnit(with: .kilo)) ?? 0
+                
+                DispatchQueue.main.async {
+                    self.todayDistance = km
+                    print("Distance today =", km)
+                    continuation.resume()
+                }
+            }
+            healtStore.execute(query)
+        }
     }
 }
 

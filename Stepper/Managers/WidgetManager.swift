@@ -1,5 +1,6 @@
 import WidgetKit
 import Foundation
+import StepperSharedUI
 
 //MARK: - Refresh Widget UI
 protocol WidgetRefreshable {

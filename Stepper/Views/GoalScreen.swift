@@ -39,7 +39,7 @@ struct GoalScreen: View {
                 CustomValueView()
                 
                 HStack(spacing: 20) {
-                    SaveButtonsView(title: "cancel", strokeClr: .pink,
+                    SaveButtonsView(title: "Back", strokeClr: .pink,
                                     isSelected: self.selectedColor == .pink) {
                         self.selectedColor = .pink
                         ///
@@ -58,18 +58,13 @@ struct GoalScreen: View {
                         }
                     }
                 }
+                Spacer()
+                
+                
             }
-            //.padding(22)
-            .navigationBarBackButtonHidden()
+            .padding()
         }
-        .padding(22)
-        .frame(height: UIScreen.main.bounds.height)
-        .overlay(alignment: .topLeading) {
-            NavigationBackButton() {
-                self.dismiss()
-            }
-                .padding(.top, 22)
-        }
+        
         .onAppear {
             self.sliderValue = CGFloat(stepGoal)
         }
