@@ -147,7 +147,8 @@ extension HomeStepView {
                     if day.monthInt != date.monthInt {
                         Text("")
                     } else {
-                        CalendarColumnView(day: dayForm, isAchive: stepForDay != nil && stepForDay!.count >= vm.goal)
+                        CalendarColumnView(day: dayForm,
+                                           isAchive: stepForDay != nil && stepForDay!.count >= vm.goal, isToday: Calendar.current.isDateInToday(day))
                     }
                 }
             } else {

@@ -5,8 +5,35 @@ import SwiftUI
 struct CalendarColumnView: View {
     let day: String
     let isAchive: Bool
+    let isToday: Bool
+    
+    private let gradient: LinearGradient = LinearGradient(colors: [.green, .black, .green],
+                                                          startPoint: .topLeading,
+                                                          endPoint: .bottomTrailing)
     
     var body: some View {
+        
+        if isToday {
+            columnUI()
+                .background {
+                    RoundedRectangle(cornerRadius: 6)
+                        .foregroundStyle(gradient.opacity(0.3))
+                        .padding(-3)
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(.green.opacity(0.4), lineWidth: 1)
+                        .padding(-3)
+                }
+        } else {
+            columnUI()
+        }
+        
+        
+    }
+    
+    @ViewBuilder
+    func columnUI() -> some View {
         VStack(spacing: 3) {
             RoundedRectangle(cornerRadius: 4)
                 .fill(isAchive ? .green.opacity(0.8) : .gray.opacity(0.4))
