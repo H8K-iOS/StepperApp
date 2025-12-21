@@ -35,12 +35,17 @@ All code is written in **Swift**.
 
 ## App Preview
 ## Main Screen
-![main](https://github.com/user-attachments/assets/718a83ed-e671-4f12-84da-06b014a9a55f)
-![main cards](https://github.com/user-attachments/assets/448b1ddf-a33c-4280-bea3-ca650fa07acd)
-![no provided data](https://github.com/user-attachments/assets/e0c2288a-811e-4c0b-9ade-e4499ce9c87e)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/718a83ed-e671-4f12-84da-06b014a9a55f" width="250">
+  <img src="https://github.com/user-attachments/assets/448b1ddf-a33c-4280-bea3-ca650fa07acd" width="250">
+  <img src="https://github.com/user-attachments/assets/e0c2288a-811e-4c0b-9ade-e4499ce9c87e" width="250">
+</p>
 
 ## Goal Screen
-![goal screen](https://github.com/user-attachments/assets/d50a5aad-f32e-4423-a6e5-6e03f717e448)
+![goal screen]()
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d50a5aad-f32e-4423-a6e5-6e03f717e448" width="250">
+</p>
 
 ## Widget Gallery
 ![widget](https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0)
