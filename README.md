@@ -34,23 +34,23 @@ The app is built using the following technologies:
 All code is written in **Swift**.
 
 ## App Preview
-**Main Screen**
+## Main Screen
 ![main](https://github.com/user-attachments/assets/718a83ed-e671-4f12-84da-06b014a9a55f)
 ![main cards](https://github.com/user-attachments/assets/448b1ddf-a33c-4280-bea3-ca650fa07acd)
 ![no provided data](https://github.com/user-attachments/assets/e0c2288a-811e-4c0b-9ade-e4499ce9c87e)
 
-**Goal Screen**
+## Goal Screen
 ![goal screen](https://github.com/user-attachments/assets/d50a5aad-f32e-4423-a6e5-6e03f717e448)
 
-**Widget Gallery**
+## Widget Gallery
 ![widget](https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0)
 
 ## Widget Preview
 
-**Compact Widgets**
+## Compact Widgets
 ![SW S](https://github.com/user-attachments/assets/2f48d38a-00f9-4520-a2fc-d7519314fd98)
 ![SW D](https://github.com/user-attachments/assets/c5ff0736-e6a1-4697-83ed-b3547e8a4c96)
 
-**Large Widgets**
+## Large Widgets
 ![LW Steps](https://github.com/user-attachments/assets/a4a94388-d810-4550-b15c-950e1e8a3156)
 ![largeWid Dis](https://github.com/user-attachments/assets/0be92a83-ea60-4512-a361-1097c188fb60)
