@@ -42,20 +42,25 @@ All code is written in **Swift**.
 </p>
 
 ## Goal Screen
-![goal screen]()
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d50a5aad-f32e-4423-a6e5-6e03f717e448" width="250">
 </p>
 
 ## Widget Gallery
-![widget](https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0" width="300">
+</p>
 
 ## Widget Preview
 
 ## Compact Widgets
-![SW S](https://github.com/user-attachments/assets/2f48d38a-00f9-4520-a2fc-d7519314fd98)
-![SW D](https://github.com/user-attachments/assets/c5ff0736-e6a1-4697-83ed-b3547e8a4c96)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2f48d38a-00f9-4520-a2fc-d7519314fd98" width="220">
+  <img src="https://github.com/user-attachments/assets/c5ff0736-e6a1-4697-83ed-b3547e8a4c96" width="220">
+</p>
 
 ## Large Widgets
-![LW Steps](https://github.com/user-attachments/assets/a4a94388-d810-4550-b15c-950e1e8a3156)
-![largeWid Dis](https://github.com/user-attachments/assets/0be92a83-ea60-4512-a361-1097c188fb60)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a4a94388-d810-4550-b15c-950e1e8a3156" width="300">
+  <img src="https://github.com/user-attachments/assets/0be92a83-ea60-4512-a361-1097c188fb60" width="300">
+</p>
