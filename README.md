@@ -48,19 +48,19 @@ Goal Screen:
 
 Widget Gallery:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0" width="300">
+  <img src="https://github.com/user-attachments/assets/cdfaed1a-7a83-43c5-b497-40eef35f70f0" width="250">
 </p>
 
 ## Widget Preview
 
 Compact Widgets:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/2f48d38a-00f9-4520-a2fc-d7519314fd98" width="220">
-  <img src="https://github.com/user-attachments/assets/c5ff0736-e6a1-4697-83ed-b3547e8a4c96" width="220">
+  <img src="https://github.com/user-attachments/assets/2f48d38a-00f9-4520-a2fc-d7519314fd98" width="250">
+  <img src="https://github.com/user-attachments/assets/c5ff0736-e6a1-4697-83ed-b3547e8a4c96" width="250">
 </p>
 
 Large Widgets:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a4a94388-d810-4550-b15c-950e1e8a3156" width="300">
-  <img src="https://github.com/user-attachments/assets/0be92a83-ea60-4512-a361-1097c188fb60" width="300">
+  <img src="https://github.com/user-attachments/assets/a4a94388-d810-4550-b15c-950e1e8a3156" width="250">
+  <img src="https://github.com/user-attachments/assets/0be92a83-ea60-4512-a361-1097c188fb60" width="250">
 </p>
